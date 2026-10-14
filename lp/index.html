@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ルアー・ライン・リール・釣果を一元管理｜デジタルタックルノート（Androidアプリ）</title>
+<meta name="description" content="「このルアー、何匹釣れた？」「このリール、何巻いてた？」をゼロに。パッケージを撮るだけのAI登録、ヒットランキング、ライン×リールの紐付け管理、釣り中は撮るだけの「まとめて登録」。釣り人の困りごとを解決するAndroidアプリ（基本無料）。">
+<link rel="canonical" href="https://anglerslabdev.github.io/lp/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="デジタルタックルノート by Angler's Lab">
+<meta property="og:title" content="釣りの「あれ、どうだっけ？」を、ゼロに。｜デジタルタックルノート">
+<meta property="og:description" content="釣り人の困りごと解決に特化した、ルアー・ライン・リール・釣果の管理アプリ（Android・基本無料）。パッケージを撮るだけで登録、釣り中は撮るだけで、あとでまとめて登録。">
+<meta property="og:url" content="https://anglerslabdev.github.io/lp/">
+<meta property="og:image" content="https://anglerslabdev.github.io/lp/img/ogp.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0a2342">
+<link rel="icon" type="image/png" href="img/icon-192.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f3460; --deep:#0a2342; --teal:#0d9488; --mint:#5eead4; --sky:#38bdf8;
+  --cta:#ea580c; --cta-h:#c2410c; --amber:#fb923c;
+  --ink:#0f172a; --gray:#5b6b80; --off:#f0fafa; --line:#dbe7ee;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Zen Maru Gothic','Hiragino Maru Gothic ProN','Hiragino Sans','Noto Sans JP',sans-serif;color:var(--ink);background:#fff;line-height:1.75;font-size:16px;overflow-x:hidden}
+img{max-width:100%;height:auto}
+h1,h2,h3{text-wrap:balance}
+a{color:inherit}
+.wrap{width:min(1040px,100% - 40px);margin-inline:auto}
+.sec{padding:68px 0}
+.sec.alt{background:var(--off)}
+.eyebrow{display:inline-block;font-size:12px;font-weight:900;letter-spacing:.12em;color:var(--teal);margin-bottom:10px}
+.eyebrow i{font-style:normal;background:var(--cta);color:#fff;border-radius:999px;padding:1px 9px;margin-left:8px;letter-spacing:.04em}
+h2{font-size:clamp(24px,6.2vw,36px);line-height:1.35;font-weight:900;color:var(--navy);letter-spacing:.01em}
+.lead{margin-top:14px;color:var(--gray);font-size:15.5px;max-width:34em}
+.center{text-align:center}.center .lead{margin-inline:auto}
+
+/* ---------- ヘッダー ---------- */
+.top{position:absolute;inset:0 0 auto 0;z-index:5;padding:16px 0}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
+.brand img{width:36px;height:36px;border-radius:9px}
+.brand b{display:block;font-size:14px;line-height:1.2}
+.brand small{display:block;font-size:10.5px;opacity:.75}
+.top a.site{font-size:12.5px;color:rgba(255,255,255,.85);text-decoration:none;border:1px solid rgba(255,255,255,.35);padding:6px 14px;border-radius:999px}
+
+/* ---------- ヒーロー ---------- */
+.hero{position:relative;background:radial-gradient(900px 520px at 85% 8%,rgba(45,212,191,.28),transparent 60%),linear-gradient(165deg,var(--deep) 0%,#0c2d55 55%,#0f3f73 100%);color:#fff;padding:92px 0 0;overflow:hidden}
+.hero .wrap{display:grid;gap:30px;grid-template-columns:minmax(0,1fr);align-items:center}
+.hero-text,.hero-vis{min-width:0}
+.badge{display:inline-block;background:rgba(94,234,212,.14);border:1px solid rgba(94,234,212,.45);color:var(--mint);font-size:12.5px;font-weight:700;padding:5px 14px;border-radius:999px}
+.hero h1{margin-top:16px;font-size:clamp(26px,7.9vw,47px);line-height:1.3;font-weight:900;letter-spacing:.01em}
+.hero h1 .ln{display:block;white-space:nowrap}
+.hero h1 em{font-style:normal;color:var(--mint)}
+.hero p.sub{margin-top:14px;color:rgba(255,255,255,.86);font-size:15px;max-width:30em}
+.qs{margin-top:20px;display:grid;gap:9px;max-width:30em}
+.q{display:flex;align-items:center;gap:12px;text-decoration:none;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:11px 14px;color:#fff;transition:background .15s}
+.q:hover{background:rgba(255,255,255,.16)}
+.q .n{flex:none;width:28px;height:28px;border-radius:50%;background:var(--mint);color:var(--deep);font-weight:900;font-size:14px;display:grid;place-items:center}
+.q span.t{text-wrap:balance;flex:1;font-weight:700;font-size:14.5px;line-height:1.5}
+.q .go{flex:none;color:var(--mint);font-size:12.5px;font-weight:700;white-space:nowrap}
+.cta-box{margin-top:24px}
+.play-cta{display:inline-flex;align-items:center;gap:10px;background:var(--cta);color:#fff;text-decoration:none;font-weight:900;font-size:17px;padding:16px 30px;border-radius:999px;box-shadow:0 12px 28px -10px rgba(234,88,12,.7);transition:transform .15s,background .15s;text-align:center;justify-content:center}
+.play-cta:hover{background:var(--cta-h);transform:translateY(-2px)}
+.play-cta svg{width:18px;height:18px;flex:none}
+.play-cta.sm{font-size:15px;padding:13px 26px}
+.cta-note{margin-top:12px;font-size:12.5px;color:rgba(255,255,255,.72)}
+.pc-note{display:none;margin-top:6px;font-size:12.5px;color:var(--mint)}
+.hero-vis{position:relative;display:flex;justify-content:center}
+.hero-vis .phone{width:min(76%,290px)}
+.hero-vis .viewport{max-height:440px;-webkit-mask-image:linear-gradient(#000 76%,transparent);mask-image:linear-gradient(#000 76%,transparent)}
+.chip{position:absolute;background:#fff;color:var(--navy);font-weight:900;font-size:13px;line-height:1.35;border-radius:14px;padding:8px 13px;box-shadow:0 10px 26px -8px rgba(0,0,0,.45);text-align:center}
+.chip.c1{right:0;top:12%}
+.chip.c2{left:1%;top:55%}
+.wave{display:block;width:100%;height:60px;margin-top:-30px;position:relative}
+
+/* ---------- iPhone版アンケート ---------- */
+.survey{display:none;margin-top:22px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.28);border-radius:18px;padding:16px 18px;max-width:30em;color:#fff;text-align:left}
+.survey b{display:block;font-size:16px;margin-bottom:4px}
+.survey p{font-size:13.5px;opacity:.92;margin-bottom:12px}
+.survey .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.vote-btn,.share-btn{font:inherit;font-weight:900;font-size:14.5px;border:0;border-radius:999px;padding:11px 20px;cursor:pointer}
+.vote-btn{background:var(--mint);color:var(--deep)}
+.share-btn{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.35);font-weight:700}
+.vote-after{display:none}
+.vote-after .thanks{font-weight:900;font-size:15px;opacity:1;margin-bottom:8px}
+.vote-after a{display:inline-block;margin-right:10px;font-weight:700;font-size:14px;color:var(--mint)}
+.ios-voted .vote-before{display:none}
+.ios-voted .vote-after{display:block}
+.is-ios .survey{display:block}
+.is-ios .play-cta,.is-ios .cta-note,.is-ios .sticky,.is-ios .pc-note{display:none!important}
+.is-ios .ios-band{display:none}
+.ios-band{background:var(--off);padding:34px 0;border-top:1px solid var(--line)}
+.ios-band .survey{display:block;margin:0 auto;background:#fff;border:1px solid var(--line);color:var(--ink);max-width:640px}
+.ios-band .survey b{color:var(--navy)}
+.ios-band .survey p{color:var(--gray);opacity:1}
+.ios-band .share-btn{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.ios-band .vote-after a{color:var(--teal)}
+
+/* ---------- 共通：スマホ枠 ---------- */
+.phone{position:relative;width:min(100%,300px);margin-inline:auto;background:#0b1220;border-radius:32px;padding:7px;box-shadow:0 26px 50px -22px rgba(8,30,58,.6),0 0 0 1px rgba(255,255,255,.07) inset}
+.phone .viewport{overflow:hidden;border-radius:25px}
+.phone img{display:block;width:100%;height:auto}
+.phone.fade .viewport{-webkit-mask-image:linear-gradient(#000 80%,transparent);mask-image:linear-gradient(#000 80%,transparent)}
+.cap{margin-top:10px;font-size:12.5px;color:var(--gray);text-align:center;line-height:1.5}
+.cta-row{margin-top:34px;text-align:center}
+
+/* ---------- ポイント1：ルアー ---------- */
+.ba{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;max-width:540px;margin:30px auto 0}
+.ba .photo{border-radius:16px;overflow:hidden;box-shadow:0 18px 36px -20px rgba(8,30,58,.6);border:1px solid var(--line)}
+.ba .photo img{display:block;width:100%}
+.ba .arrow{font-size:26px;color:var(--teal);font-weight:900}
+.ba .phone{width:100%}
+.ba .phone .viewport{max-height:330px}
+.benefits{display:grid;gap:12px;margin-top:30px}
+.benefit{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:18px;padding:15px 16px}
+.benefit .ic{flex:none;width:44px;height:44px;border-radius:13px;background:#e3f7f3;display:grid;place-items:center;font-size:22px}
+.benefit h3{font-size:16px;font-weight:900;color:var(--navy);line-height:1.45}
+.benefit p{margin-top:3px;font-size:14px;color:var(--gray);line-height:1.65}
+.benefit p b{color:var(--ink)}
+.wide{margin:26px auto 0;max-width:560px}
+.wide .img{border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 18px 36px -22px rgba(8,30,58,.55);background:#2a3340}
+.wide .img img{display:block;width:100%}
+
+/* ---------- ポイント2：一元管理 ---------- */
+.qa-list{display:grid;gap:12px;margin-top:30px}
+.qa{background:#fff;border:1px solid var(--line);border-radius:18px;padding:15px 18px}
+.qa .qq{font-weight:900;color:var(--navy);font-size:15.5px;line-height:1.5}
+.qa .qq::before{content:'Q';display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;margin-right:8px;vertical-align:1px}
+.qa .aa{margin-top:6px;font-size:14px;color:var(--gray);line-height:1.7;padding-left:30px}
+.qa .aa b{color:var(--teal)}
+.duo{display:flex;gap:14px;justify-content:center;align-items:flex-start;max-width:540px;margin:32px auto 0}
+.duo .phone{width:48%}
+.duo .phone .viewport{max-height:400px}
+
+/* ---------- ポイント3：まとめて登録 ---------- */
+.hscroll{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 20px 20px;margin:26px -20px 0;-webkit-overflow-scrolling:touch}
+.hs{flex:0 0 66%;max-width:270px;scroll-snap-align:center}
+.hs .tag{display:block;text-align:center;margin-bottom:10px}
+.pill-step{display:inline-block;background:var(--teal);color:#fff;font-weight:900;font-size:12px;letter-spacing:.1em;padding:3px 13px;border-radius:999px}
+.hs .phone .viewport{max-height:470px}
+.hint{text-align:center;font-size:12px;color:var(--gray);margin-top:-6px}
+.ways{display:grid;gap:12px;margin-top:22px}
+.way{background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px 16px}
+.way h3{font-size:15.5px;color:var(--navy);font-weight:900;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.way p{margin-top:3px;font-size:13.5px;color:var(--gray);line-height:1.6}
+.pill{display:inline-block;font-size:11.5px;font-weight:900;padding:2px 10px;border-radius:999px;background:#e8f1f8;color:var(--navy)}
+.pill.ai{background:#fff1e6;color:#c2410c}
+.pill.new{background:var(--cta);color:#fff}
+.way.hl{border:2px solid var(--cta)}
+
+/* ---------- ほかにも ---------- */
+.more .hs{flex-basis:62%;max-width:250px}
+.more .phone .viewport{max-height:420px}
+.more .card{border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 20px 40px -22px rgba(8,30,58,.55)}
+.more .card img{display:block;width:100%}
+.more h3{margin-top:12px;font-size:15px;font-weight:900;color:var(--navy);text-align:center}
+.more p{margin-top:3px;font-size:13px;color:var(--gray);text-align:center;line-height:1.6}
+
+/* ---------- 注意・料金 ---------- */
+details{background:#fff;border:1px solid var(--line);border-radius:18px;padding:4px 20px;max-width:760px;margin:22px auto 0}
+summary{cursor:pointer;font-weight:900;color:var(--navy);padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:10px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'＋';color:var(--teal);font-size:20px}
+details[open] summary::after{content:'－'}
+details ul{padding:0 0 16px 20px;color:var(--gray);font-size:14.5px}
+details li{margin-top:6px}
+.price{max-width:760px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px 24px}
+.price p{margin-top:8px;color:var(--gray);font-size:15px}
+.price b{color:var(--navy)}
+
+/* ---------- 最終CTA・フッター ---------- */
+.final{background:linear-gradient(165deg,var(--deep),#0f3f73);color:#fff;text-align:center;padding:72px 0 76px}
+.final h2{color:#fff}
+.final .lead{color:rgba(255,255,255,.82)}
+.final .cta-box{margin-top:26px}
+.final .survey{margin-inline:auto}
+footer{background:#071a33;color:rgba(255,255,255,.65);padding:34px 0 96px;font-size:13px}
+footer .links{display:flex;gap:8px 20px;flex-wrap:wrap;margin-bottom:16px}
+footer a{color:rgba(255,255,255,.8);text-decoration:none}
+footer a:hover{color:var(--mint)}
+footer small{display:block;line-height:1.7;opacity:.7}
+
+/* ---------- 固定CTA（スマホ） ---------- */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(10,35,66,.96);backdrop-filter:blur(8px);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-between;gap:12px;transform:translateY(110%);transition:transform .3s}
+.sticky.show{transform:none}
+.sticky span{color:#fff;font-weight:700;font-size:13px;line-height:1.35}
+.sticky span small{display:block;font-weight:400;opacity:.75;font-size:11.5px}
+.sticky .play-cta{padding:11px 20px;font-size:14.5px;box-shadow:none}
+
+/* ---------- PC ---------- */
+@media(min-width:900px){
+  .hero{padding-top:100px}
+  .hero .wrap{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;padding-bottom:56px}
+  .hero-vis .phone{width:300px}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  .split .visual .ba,.split .visual .wide,.split .visual .duo{margin-top:0}
+  .hscroll{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;margin:30px 0 0;padding:0;gap:28px}
+  .hs{max-width:none}
+  .more .hs{max-width:none}
+  .hint{display:none}
+  .ways{grid-template-columns:repeat(3,1fr)}
+  .sticky{display:none}
+  footer{padding-bottom:40px}
+}
+@media(min-width:900px) and (pointer:fine){.pc-note{display:block}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sticky,.play-cta{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="https://anglerslabdev.github.io/">
+      <img src="img/icon-192.png" alt="" width="36" height="36">
+      <span><b>デジタルタックルノート</b><small>by Angler's Lab</small></span>
+    </a>
+    <a class="site" href="https://anglerslabdev.github.io/">公式サイト</a>
+  </div>
+</header>
+
+<!-- ================= ヒーロー ================= -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="badge">🎣 Androidアプリ｜基本無料</span>
+      <h1><span class="ln">釣りの</span><span class="ln">「あれ、どうだっけ？」</span><span class="ln">を、<em>ゼロ</em>に。</span></h1>
+      <p class="sub">釣り人の困りごと解決に特化した、ルアー・ライン・リール・釣果の管理アプリです。</p>
+
+      <div class="qs">
+        <a class="q" href="#p1" data-goatcounter-click="lp-nav-p1"><span class="n">1</span><span class="t">「このルアー、何匹釣れた？」</span><span class="go">解決 ›</span></a>
+        <a class="q" href="#p2" data-goatcounter-click="lp-nav-p2"><span class="n">2</span><span class="t">「どのリールに、どのライン巻いた？ メンテはいつ？」</span><span class="go">解決 ›</span></a>
+        <a class="q" href="#p3" data-goatcounter-click="lp-nav-p3"><span class="n">3</span><span class="t">「釣り中は、登録している時間がない…」</span><span class="go">解決 ›</span></a>
+      </div>
+
+      <div class="cta-box" id="hero-cta">
+        <a class="play-cta" data-play data-goatcounter-click="lp-dl-hero" href="https://play.google.com/store/apps/details?id=com.anglerslab.linemanager&amp;referrer=utm_source%3Dofficial_site%26utm_medium%3Dweb%26utm_campaign%3Dlp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5z"/></svg>
+          Google Play で無料ダウンロード
+        </a>
+        <p class="cta-note">Android 7.0 以上｜基本機能は無料（PRO版あり）</p>
+        <p class="pc-note">📱 スマホ（Android）でこのページを開くと、そのままインストールできます</p>
+        <div class="survey">
+          <b>📱 iPhone版を検討しています</b>
+          <p>いまはAndroid専用です。iPhone版を希望される方は、お知らせください（開発の参考にします）。</p>
+          <div class="vote-before row"><button type="button" class="vote-btn" data-ios-vote data-goatcounter-click="lp-ios-want">👍 iPhone版を希望する</button><button type="button" class="share-btn" data-share>このページを送る</button></div>
+          <div class="vote-after"><p class="thanks">ありがとうございます！</p><a data-ios-form href="https://docs.google.com/forms/d/e/1FAIpQLSdxXggF7AudxN3ntoDTkdGZ0JZloUUJ58TlrPdtSQC2uMFDoA/viewform?usp=header" target="_blank" rel="noopener">ご意見・ご要望を書く（任意）</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-vis">
+      <div class="phone"><div class="viewport"><img src="img/home.webp" width="640" height="1192" alt="ホーム画面。ルアー・ライン・リール・釣行の4つの管理と、今年の釣行数・釣果数が表示されている"></div></div>
+      <div class="chip c1">ルアー・ライン・リール・<br>釣行を、1つに</div>
+      <div class="chip c2">カメラAI読取で<br>登録がラク</div>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff"/></svg>
+</section>
+
+<!-- ================= ポイント1：ルアー管理 ================= -->
+<section class="sec" id="p1">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">POINT 1 ｜ ルアー管理</span>
+      <h2>ルアーは、撮って登録。<br>パッケージは、捨てていい。</h2>
+      <p class="lead">持っているルアーを写真つきで一覧管理。釣れたルアーは、ヒット数が自動で貯まります。</p>
+    </div>
+
+    <div class="ba">
+      <figure><div class="photo"><img loading="lazy" src="img/pack.webp" width="480" height="680" alt="ルアーのパッケージがたくさん山積みになっている写真"></div><figcaption class="cap">Before<br>パッケージの山</figcaption></figure>
+      <div class="arrow" aria-hidden="true">→</div>
+      <figure><div class="phone fade"><div class="viewport"><img loading="lazy" src="img/lure.webp" width="640" height="1050" alt="ルアー一覧。写真つきでヒット数と称号が並んでいる"></div></div><figcaption class="cap">After<br>スマホにすっきり</figcaption></figure>
+    </div>
+
+    <div class="benefits">
+      <div class="benefit"><div class="ic">📷</div><div><h3>AI読取で、登録がかんたん</h3><p>パッケージを撮るだけで、<b>品名・メーカー・サイズ・カラー</b>をAIが自動入力。結果は確認・修正してから登録できます。</p></div></div>
+      <div class="benefit"><div class="ic">📦</div><div><h3>登録したら、パッケージは捨てられる</h3><p>写真を残しておけば、<b>かさばるパッケージは迷わず手放せます</b>。</p></div></div>
+      <div class="benefit"><div class="ic">🏆</div><div><h3>ヒットランキングを自動生成</h3><p>釣果に使ったルアーを選ぶだけで、ヒット数を自動集計。<b>一軍ルアーがひと目</b>でわかり、<b>🤝相棒・⚔️エース・👑伝説</b>の称号もつきます。</p></div></div>
+      <div class="benefit"><div class="ic">💀</div><div><h3>ロストも、履歴で管理</h3><p>ロストしたルアーは記録に残り、<b>そのまま買い物リストに追加</b>できます。買い忘れを防げます。</p></div></div>
+    </div>
+
+    <div class="wide">
+      <div class="img"><img loading="lazy" src="img/ai-buttons.webp" width="600" height="346" alt="ルアーAI読取・ラインAI読取・リールAI読取の3つのボタン"></div>
+      <p class="cap">ルアー・ライン・リールに、それぞれ「AI読取」ボタン</p>
+    </div>
+    <div class="cta-row"><a class="play-cta sm" data-play data-goatcounter-click="lp-dl-p1" href="https://play.google.com/store/apps/details?id=com.anglerslab.linemanager&amp;referrer=utm_source%3Dofficial_site%26utm_medium%3Dweb%26utm_campaign%3Dlp" target="_blank" rel="noopener">▶ 無料で試してみる</a></div>
+  </div>
+</section>
+
+<!-- ================= ポイント2：一元管理 ================= -->
+<section class="sec alt" id="p2">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">POINT 2 ｜ 一元管理</span>
+      <h2>ルアー・ライン・リール・釣果を、<br>これ1本で。</h2>
+      <p class="lead">管理するものがバラバラだと、「あれ、どうだっけ？」が増えていきます。釣りの道具と釣果に特化して、ひとつにまとめました。</p>
+    </div>
+
+    <div class="duo">
+      <div class="phone fade"><div class="viewport"><img loading="lazy" src="img/line-reel.webp" width="480" height="746" alt="保有一覧。リールに装着中のラインが、リールごとにひと目でわかる"></div></div>
+      <div class="phone fade"><div class="viewport"><img loading="lazy" src="img/spool.webp" width="300" height="614" alt="リールの登録画面。糸巻き量の登録と、推定糸巻き量の計算"></div></div>
+    </div>
+
+    <div class="qa-list">
+      <div class="qa"><p class="qq">どのリール（スプール）に、どのラインを巻いたっけ？</p><p class="aa"><b>ライン×リールを紐付けて管理。</b>スプール単位の管理にも対応し、保有一覧でひと目で確認できます。</p></div>
+      <div class="qa"><p class="qq">このライン、何回使った？ リールのメンテ、いつした？</p><p class="aa">ラインの<b>使用回数・購入日</b>、リールの<b>オーバーホール・カスタム履歴</b>を記録。交換やメンテの目安にできます。</p></div>
+      <div class="qa"><p class="qq">このリール、ラインは何m巻ける？</p><p class="aa">登録したスペックから、<b>推定糸巻き量を自動計算</b>します。</p></div>
+      <div class="qa"><p class="qq">ライン交換の手順、毎回迷う…</p><p class="aa"><b>ナビ機能</b>が、ラインの取り外し・移動・装着をガイド。画面に従うだけで完了します。</p></div>
+    </div>
+    <div class="cta-row"><a class="play-cta sm" data-play data-goatcounter-click="lp-dl-p2" href="https://play.google.com/store/apps/details?id=com.anglerslab.linemanager&amp;referrer=utm_source%3Dofficial_site%26utm_medium%3Dweb%26utm_campaign%3Dlp" target="_blank" rel="noopener">▶ 無料で試してみる</a></div>
+  </div>
+</section>
+
+<!-- ================= ポイント3：まとめて登録 ================= -->
+<section class="sec" id="p3">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">POINT 3 ｜ まとめて登録<i>NEW</i></span>
+      <h2>釣っている間は、撮るだけ。<br>登録は、あとでまとめて。</h2>
+      <p class="lead">釣りの最中は、アプリに登録している時間なんてありません。写真を撮っておけば、帰ってから撮影時刻ごとに釣果をまとめて登録できます。</p>
+    </div>
+
+    <div class="hscroll">
+      <div class="hs"><span class="tag"><span class="pill-step">STEP 1</span></span><div class="phone"><div class="viewport"><img loading="lazy" src="img/pick.webp" width="640" height="1246" alt="写真選択の画面で、その日の釣りの写真を12枚まとめて選んでいる"></div></div><p class="cap"><b>写真を選ぶ</b><br>その日の写真をまとめて選択<br>（1つの釣行で最大15枚）</p></div>
+      <div class="hs"><span class="tag"><span class="pill-step">STEP 2</span></span><div class="phone"><div class="viewport"><img loading="lazy" src="img/bulk.webp" width="640" height="978" alt="確認画面。写真12枚が釣果11件になり、続けて撮った2枚は同じ1匹としてまとまっている"></div></div><p class="cap"><b>撮影時刻ごとに釣果が並ぶ</b><br>1分以内の写真は同じ1匹に自動でまとめ</p></div>
+      <div class="hs"><span class="tag"><span class="pill-step">STEP 3</span></span><div class="phone"><div class="viewport"><img loading="lazy" src="img/done.webp" width="640" height="1025" alt="登録後の釣行記録。写真の下に撮影時刻、釣果の一覧にアオリイカとルアーが並んでいる"></div></div><p class="cap"><b>できあがり</b><br>ルアーのヒット数も自動で貯まる</p></div>
+    </div>
+    <p class="hint">← 横にスワイプ →</p>
+
+    <div class="ways">
+      <div class="way"><h3>📸 釣果AI読取 <span class="pill ai">AIあり</span></h3><p>写真1枚から、魚種・ルアー・時刻を自動で入力（結果は確認できます）</p></div>
+      <div class="way"><h3>✏️ 自分で入力 <span class="pill">AIなし</span></h3><p>写真がないとき、自分で入れたいときに</p></div>
+      <div class="way hl"><h3>📚 写真からまとめて登録 <span class="pill new">NEW</span> <span class="pill">AIなし</span></h3><p>写真がたくさんある日（数釣りの日など）に</p></div>
+    </div>
+    <div class="cta-row"><a class="play-cta sm" data-play data-goatcounter-click="lp-dl-p3" href="https://play.google.com/store/apps/details?id=com.anglerslab.linemanager&amp;referrer=utm_source%3Dofficial_site%26utm_medium%3Dweb%26utm_campaign%3Dlp" target="_blank" rel="noopener">▶ 無料で試してみる</a></div>
+  </div>
+</section>
+
+<!-- ================= ほかにも ================= -->
+<section class="sec alt more" id="more">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">MORE</span>
+      <h2>釣るほど、データが貯まっていく。</h2>
+    </div>
+    <div class="hscroll">
+      <div class="hs"><div class="phone"><div class="viewport"><img loading="lazy" src="img/home.webp" width="640" height="1192" alt="ホーム画面"></div></div><h3>ホームで、今年の釣りがひと目</h3><p>釣行回数・釣果数・月別グラフ・記録更新</p></div>
+      <div class="hs"><div class="phone"><div class="viewport"><img loading="lazy" src="img/record.webp" width="640" height="1116" alt="マイレコード・釣果分析の画面"></div></div><h3>マイレコードで、振り返る</h3><p>自己最高サイズ・魚種別・釣り方別・釣り場別・潮まわり別</p></div>
+      <div class="hs"><div class="card"><img loading="lazy" src="img/sharecard.webp" width="540" height="960" alt="マイレコードから作ったSNS共有カードの例"></div><h3>カードにして、SNSで共有</h3><p>釣果写真と数字を、1枚のカード画像に</p></div>
+    </div>
+    <p class="hint">← 横にスワイプ →</p>
+  </div>
+</section>
+
+<!-- ================= 料金・注意 ================= -->
+<section class="sec" id="notes">
+  <div class="wrap">
+    <div class="price">
+      <span class="eyebrow">PRICE</span>
+      <h2 style="font-size:clamp(21px,5.4vw,28px)">料金について</h2>
+      <p><b>基本機能は無料</b>です。バックアップ・復元などの<b>PRO版</b>もご用意しています。AI読取は、2026年10月現在、無料版でも回数制限なしでご利用いただけます。</p>
+    </div>
+    <details>
+      <summary>ご利用前にお読みください（できること・できないこと）</summary>
+      <ul>
+        <li>「写真からまとめて登録」：1つの釣行に入れられる写真は<b>最大15枚</b>です。超えた分の釣果は、写真なしで登録されます。</li>
+        <li>同じ1匹としてまとめた写真は、<b>最初の1枚だけ</b>を取り込みます。</li>
+        <li>撮影時刻が残っていない写真（LINEで送られた写真など）は、時刻なしで登録されます。撮影時刻の表示は、v2.74 以降に取り込んだ写真から行われます。</li>
+        <li>「写真からまとめて登録」はAIを使いません。時刻は写真の撮影時刻、魚種・ルアーはご自身で選びます。</li>
+        <li>AI読取の結果は、間違うことがあります。登録前にご確認ください。</li>
+        <li>ルアーのAI読取は、パッケージの文字を読み取る仕組みです。ルアー本体の写真だけでは登録できません。</li>
+        <li>ラインの使用回数やリールのメンテ履歴は、記録して目安にするためのものです（自動の通知はありません）。</li>
+      </ul>
+    </details>
+  </div>
+</section>
+
+<section class="final" id="final">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--mint)">START</span>
+    <h2>釣りの「あれ、どうだっけ？」を、<br>次の釣行からゼロに。</h2>
+    <p class="lead">ルアー・ライン・リール・釣果を、これ1本で。</p>
+    <div class="cta-box">
+      <a class="play-cta" data-play data-goatcounter-click="lp-dl-final" href="https://play.google.com/store/apps/details?id=com.anglerslab.linemanager&amp;referrer=utm_source%3Dofficial_site%26utm_medium%3Dweb%26utm_campaign%3Dlp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5z"/></svg>
+        Google Play で無料ダウンロード
+      </a>
+      <p class="cta-note">Android 7.0 以上｜基本機能は無料（PRO版あり）</p>
+      <div class="survey">
+        <b>📱 iPhone版を検討しています</b>
+        <p>いまはAndroid専用です。iPhone版を希望される方は、お知らせください（開発の参考にします）。</p>
+        <div class="vote-before row"><button type="button" class="vote-btn" data-ios-vote data-goatcounter-click="lp-ios-want">👍 iPhone版を希望する</button><button type="button" class="share-btn" data-share>このページを送る</button></div>
+        <div class="vote-after"><p class="thanks">ありがとうございます！</p><a data-ios-form href="https://docs.google.com/forms/d/e/1FAIpQLSdxXggF7AudxN3ntoDTkdGZ0JZloUUJ58TlrPdtSQC2uMFDoA/viewform?usp=header" target="_blank" rel="noopener">ご意見・ご要望を書く（任意）</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- iPhoneをお使いの方へ（Android端末で見ている方にも表示） -->
+<section class="ios-band" id="iphone">
+  <div class="wrap">
+    <div class="survey">
+      <b>📱 iPhoneをお使いの方へ</b>
+      <p>デジタルタックルノートは、いまはAndroid専用です。iPhone版の開発を検討するため、ご希望をうかがっています。</p>
+      <div class="vote-before row"><button type="button" class="vote-btn" data-ios-vote data-goatcounter-click="lp-ios-want">👍 iPhone版を希望する</button></div>
+      <div class="vote-after"><p class="thanks">ありがとうございます！</p><a data-ios-form href="https://docs.google.com/forms/d/e/1FAIpQLSdxXggF7AudxN3ntoDTkdGZ0JZloUUJ58TlrPdtSQC2uMFDoA/viewform?usp=header" target="_blank" rel="noopener">ご意見・ご要望を書く（任意）</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="https://anglerslabdev.github.io/">公式サイト</a>
+      <a href="https://www.youtube.com/playlist?list=PLoDcAZXFefPI02MxeyKSlOv0uCkWmlFZp" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdxXggF7AudxN3ntoDTkdGZ0JZloUUJ58TlrPdtSQC2uMFDoA/viewform?usp=header" target="_blank" rel="noopener">お問い合わせ・ご要望</a>
+      <a href="https://sites.google.com/view/linemanager-privacy" target="_blank" rel="noopener">プライバシーポリシー</a>
+    </div>
+    <small>© 2025-2026 Angler's Lab. All rights reserved.<br>Google Play および Google Play ロゴは Google LLC の商標です。</small>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky">
+  <span>デジタルタックルノート<small>Android｜基本無料</small></span>
+  <a class="play-cta" data-play data-goatcounter-click="lp-dl-sticky" href="https://play.google.com/store/apps/details?id=com.anglerslab.linemanager&amp;referrer=utm_source%3Dofficial_site%26utm_medium%3Dweb%26utm_campaign%3Dlp" target="_blank" rel="noopener">ダウンロード</a>
+</div>
+
+<script>
+(function(){
+  /* ★iPhone版アンケートの「ご意見フォーム」のURL。専用フォームを作ったら、ここだけ差し替える */
+  var IOS_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdxXggF7AudxN3ntoDTkdGZ0JZloUUJ58TlrPdtSQC2uMFDoA/viewform?usp=header';
+
+  /* 1) 流入元（utm_source / utm_medium）をPlayストアのリンクへ引き継ぐ */
+  var BASE = 'https://play.google.com/store/apps/details?id=com.anglerslab.linemanager';
+  function clean(v, d){ v = (v || '').toLowerCase().replace(/[^a-z0-9_\-]/g, '').slice(0, 30); return v || d; }
+  try {
+    var q = new URLSearchParams(location.search);
+    var rawSrc = q.get('utm_source') || q.get('s');
+    var src = clean(rawSrc, 'official_site');
+    var med = clean(q.get('utm_medium'), rawSrc ? 'social' : 'web');
+    var url = BASE + '&referrer=' + encodeURIComponent('utm_source=' + src + '&utm_medium=' + med + '&utm_campaign=lp');
+    if (src === 'threads') url += '&listing=threads';   // Threads用カスタムストア掲載情報
+    document.querySelectorAll('a[data-play]').forEach(function(a){ a.href = url; });
+  } catch(e) {}
+
+  /* 2) iPhone / iPad：Playボタンを隠してアンケートを表示 */
+  var ua = navigator.userAgent || '';
+  var isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (isIOS) document.documentElement.classList.add('is-ios');
+
+  /* 3) iPhone版を希望する（押された回数は GoatCounter の「lp-ios-want」で数える） */
+  var VOTE_KEY = 'dtn_ios_want';
+  try { if (localStorage.getItem(VOTE_KEY)) document.documentElement.classList.add('ios-voted'); } catch(e) {}
+  document.querySelectorAll('[data-ios-vote]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      try { localStorage.setItem(VOTE_KEY, '1'); } catch(e) {}
+      document.documentElement.classList.add('ios-voted');
+    });
+  });
+  document.querySelectorAll('[data-ios-form]').forEach(function(a){ a.href = IOS_FORM_URL; });
+
+  /* 4) このページのリンクを送る／コピー */
+  document.querySelectorAll('[data-share]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var link = location.origin + location.pathname;
+      if (navigator.share) { navigator.share({ title: document.title, url: link }).catch(function(){}); }
+      else if (navigator.clipboard) { navigator.clipboard.writeText(link).then(function(){ btn.textContent = 'コピーしました ✓'; }); }
+      else { window.prompt('このURLをコピーしてください', link); }
+    });
+  });
+
+  /* 5) スマホでは、ヒーローのボタンが見えなくなったら下に固定ボタンを出す */
+  var sticky = document.getElementById('sticky');
+  var heroCta = document.getElementById('hero-cta');
+  var fin = document.getElementById('final');
+  if (sticky && heroCta && 'IntersectionObserver' in window) {
+    var heroOut = false, finIn = false;
+    function upd(){ sticky.classList.toggle('show', heroOut && !finIn); }
+    new IntersectionObserver(function(e){ heroOut = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; upd(); }).observe(heroCta);
+    new IntersectionObserver(function(e){ finIn = e[0].isIntersecting; upd(); }, { threshold: 0.2 }).observe(fin);
+  }
+
+  /* 6) どのポイントまで読まれたかを計測（GoatCounter に「lp-view-◯◯」として記録） */
+  if ('IntersectionObserver' in window) {
+    var seen = {};
+    var vo = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        var id = en.target.id;
+        if (en.isIntersecting && !seen[id]) {
+          seen[id] = 1;
+          try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'lp-view-' + id, title: 'LP view ' + id, event: true }); } catch(e) {}
+        }
+      });
+    }, { threshold: 0.35 });
+    ['p1','p2','p3','more','final'].forEach(function(id){ var el = document.getElementById(id); if (el) vo.observe(el); });
+  }
+})();
+</script>
+<script data-goatcounter="https://anglerslab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

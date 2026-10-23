@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ルアー・ライン・リール・釣果を一元管理｜デジタルタックルノート（Androidアプリ）</title>
-<meta name="description" content="「このルアー、何匹釣れた？」「このリール、何巻いてた？」をゼロに。パッケージを撮るだけのAI登録、ヒットランキング、ライン×リールの紐付け管理、釣り中は撮るだけの「まとめて登録」。釣り人の困りごとを解決するAndroidアプリ（基本無料）。">
+<meta name="description" content="「このルアー、何匹釣れた？」「このリール、何巻いてた？」をゼロに。パッケージを撮るだけのAI登録、ヒットランキング、ライン×リールの紐付け管理、釣り中は撮るだけの「まとめて登録」。文字とボタンを大きくできるシンプル表示も。釣り人の困りごとを解決するAndroidアプリ（基本無料）。">
 <link rel="canonical" href="https://anglers-lab.net/lp/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="デジタルタックルノート by Angler's Lab">
 <meta property="og:title" content="釣りの「あれ、どうだっけ？」を、ゼロに。｜デジタルタックルノート">
-<meta property="og:description" content="釣り人の困りごと解決に特化した、ルアー・ライン・リール・釣果の管理アプリ（Android・基本無料）。パッケージを撮るだけで登録、釣り中は撮るだけで、あとでまとめて登録。">
+<meta property="og:description" content="釣り人の困りごと解決に特化した、ルアー・ライン・リール・釣果の管理アプリ（Android・基本無料）。パッケージを撮るだけで登録、釣り中は撮るだけで、あとでまとめて登録。文字とボタンを大きくできるシンプル表示も選べます。">
 <meta property="og:url" content="https://anglers-lab.net/lp/">
 <meta property="og:image" content="https://anglers-lab.net/lp/img/ogp.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -210,6 +210,26 @@ footer small{display:block;line-height:1.7;opacity:.7}
 }
 @media(min-width:900px) and (pointer:fine){.pc-note{display:block}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sticky,.play-cta{transition:none}}
+/* ---------- ポイント4：シンプル表示 ---------- */
+.chip.c3{left:-2%;top:7%}
+.pill-step.std{background:#64748b}
+.hs.hlc .phone{background:var(--teal);box-shadow:0 26px 50px -22px rgba(13,148,136,.7),0 0 0 3px #99f6e4}
+.hs .cap b{color:var(--navy)}
+.hs.hlc .cap b{color:var(--teal)}
+.flowhead{margin:30px 0 12px;font-weight:900;font-size:17px;color:var(--navy);text-align:center}
+.flowhead span{display:block;font-size:13px;font-weight:700;color:var(--teal);margin-top:2px}
+.flow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:640px;margin:0 auto}
+.fstep{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.fstep .d{font-size:12px;font-weight:700;color:var(--teal);line-height:1.4}
+.fstep .d b{margin-left:8px;font-size:16px;font-weight:900;color:var(--navy)}
+.fstep p{font-size:13px;line-height:1.6;color:var(--gray);margin-top:4px}
+.fstep.hl{border:2px solid var(--teal);background:#e3f7f3}
+.fstep.hl p{color:var(--ink)}
+@media(min-width:900px){
+  .more .hscroll{grid-template-columns:repeat(2,minmax(0,1fr));max-width:620px;margin-left:auto;margin-right:auto}
+  #p4 .hscroll{grid-template-columns:repeat(4,minmax(0,1fr));max-width:920px;margin-left:auto;margin-right:auto}
+  .flow{grid-template-columns:repeat(4,minmax(0,1fr));max-width:920px}
+}
 </style>
 </head>
 <body>
@@ -236,6 +256,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
         <a class="q" href="#p1" data-goatcounter-click="lp-nav-p1"><span class="n">1</span><span class="t">「このルアー、何匹釣れた？」</span><span class="go">解決 ›</span></a>
         <a class="q" href="#p2" data-goatcounter-click="lp-nav-p2"><span class="n">2</span><span class="t">「どのリールに、どのライン巻いた？ メンテはいつ？」</span><span class="go">解決 ›</span></a>
         <a class="q" href="#p3" data-goatcounter-click="lp-nav-p3"><span class="n">3</span><span class="t">「釣り中は、登録している時間がない…」</span><span class="go">解決 ›</span></a>
+        <a class="q" href="#p4" data-goatcounter-click="lp-nav-p4"><span class="n">4</span><span class="t">「文字が小さくて、ボタンが押しにくい…」</span><span class="go">解決 ›</span></a>
       </div>
 
       <div class="cta-box" id="hero-cta">
@@ -243,7 +264,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5z"/></svg>
           Google Play で無料ダウンロード
         </a>
-        <p class="cta-note">Android 7.0 以上｜基本機能は無料（PRO版あり）</p>
+        <p class="cta-note">Android 7.0 以上｜基本機能は無料（PRO版あり）<br>最新版：v2.80（2026年10月22日公開）</p>
         <p class="pc-note">📱 スマホ（Android）でこのページを開くと、そのままインストールできます</p>
         <div class="survey">
           <b>📱 iPhone版を検討しています</b>
@@ -254,9 +275,10 @@ footer small{display:block;line-height:1.7;opacity:.7}
       </div>
     </div>
     <div class="hero-vis">
-      <div class="phone"><div class="viewport"><img src="img/home.webp" width="640" height="1192" alt="ホーム画面。ルアー・ライン・リール・釣行の4つの管理と、今年の釣行数・釣果数が表示されている"></div></div>
+      <div class="phone"><div class="viewport"><img src="img/home-std.webp" width="640" height="1198" alt="標準の表示のホーム画面。上のボタンで、シンプル表示に切り替えられる。ルアー・ライン・リール・釣行の4つの管理と、今年の釣行数・釣果数が表示されている"></div></div>
       <div class="chip c1">ルアー・ライン・リール・<br>釣行を、1つに</div>
       <div class="chip c2">カメラAI読取で<br>登録がラク</div>
+      <div class="chip c3">ボタンひとつで<br>シンプル表示へ</div>
     </div>
   </div>
   <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff"/></svg>
@@ -281,7 +303,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
       <div class="benefit"><div class="ic">📷</div><div><h3>AI読取で、登録がかんたん</h3><p>パッケージを撮るだけで、<b>品名・メーカー・サイズ・カラー</b>をAIが自動入力。結果は確認・修正してから登録できます。</p></div></div>
       <div class="benefit"><div class="ic">📦</div><div><h3>登録したら、パッケージは捨てられる</h3><p>写真を残しておけば、<b>かさばるパッケージは迷わず手放せます</b>。</p></div></div>
       <div class="benefit"><div class="ic">🏆</div><div><h3>ヒットランキングを自動生成</h3><p>釣果に使ったルアーを選ぶだけで、ヒット数を自動集計。<b>一軍ルアーがひと目</b>でわかり、<b>🤝相棒・⚔️エース・👑伝説</b>の称号もつきます。</p></div></div>
-      <div class="benefit"><div class="ic">💀</div><div><h3>ロストも、履歴で管理</h3><p>ロストしたルアーは記録に残り、<b>そのまま買い物リストに追加</b>できます。買い忘れを防げます。</p></div></div>
+      <div class="benefit"><div class="ic">💀</div><div><h3>ロストしても、もう一度買える</h3><p>「メチャ釣れたルアーをロストしたのに、型番を覚えていない！」でも、ロスト履歴が記録に残り、<b>買い物リストにそのまま追加</b>できます。登録から再購入まで、一連の流れに対応しています。</p></div></div>
     </div>
 
     <div class="wide">
@@ -320,7 +342,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
 <section class="sec" id="p3">
   <div class="wrap">
     <div class="center">
-      <span class="eyebrow">POINT 3 ｜ まとめて登録<i>NEW</i></span>
+      <span class="eyebrow">POINT 3 ｜ まとめて登録</span>
       <h2>釣っている間は、撮るだけ。<br>登録は、あとでまとめて。</h2>
       <p class="lead">釣りの最中は、アプリに登録している時間なんてありません。写真を撮っておけば、帰ってから撮影時刻ごとに釣果をまとめて登録できます。</p>
     </div>
@@ -335,9 +357,42 @@ footer small{display:block;line-height:1.7;opacity:.7}
     <div class="ways">
       <div class="way"><h3>📸 釣果AI読取 <span class="pill ai">AIあり</span></h3><p>写真1枚から、魚種・ルアー・時刻を自動で入力（結果は確認できます）</p></div>
       <div class="way"><h3>✏️ 自分で入力 <span class="pill">AIなし</span></h3><p>写真がないとき、自分で入れたいときに</p></div>
-      <div class="way hl"><h3>📚 写真からまとめて登録 <span class="pill new">NEW</span> <span class="pill">AIなし</span></h3><p>写真がたくさんある日（数釣りの日など）に</p></div>
+      <div class="way hl"><h3>📚 写真からまとめて登録 <span class="pill">AIなし</span></h3><p>写真がたくさんある日（数釣りの日など）に</p></div>
     </div>
     <div class="cta-row"><a class="play-cta sm" data-play data-goatcounter-click="lp-dl-p3" href="https://play.google.com/store/apps/details?id=com.anglerslab.linemanager&amp;referrer=utm_source%3Dofficial_site%26utm_medium%3Dweb%26utm_campaign%3Dlp" target="_blank" rel="noopener">▶ 無料で試してみる</a></div>
+  </div>
+</section>
+
+<!-- ================= ポイント4：シンプル表示 ================= -->
+<section class="sec alt" id="p4">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">POINT 4 ｜ 見やすさ<i>NEW</i></span>
+      <h2>文字もボタンも、<br>大きく選べる。</h2>
+      <p class="lead">老眼の方、文字を大きくしたい方、操作をシンプルにしたい方へ。ホームの情報をしぼった「シンプル表示」を追加しました。</p>
+    </div>
+
+    <div class="hscroll">
+      <div class="hs"><span class="tag"><span class="pill-step std">標準の表示</span></span><div class="phone"><div class="viewport"><img loading="lazy" src="img/home-std.webp" width="640" height="1198" alt="標準の表示のホーム画面。今年の釣行・月別グラフ・記録更新が並んでいる"></div></div><p class="cap"><b>ホーム</b><br>今年の記録やグラフも見られる</p></div>
+      <div class="hs hlc"><span class="tag"><span class="pill-step">シンプル表示</span></span><div class="phone"><div class="viewport"><img loading="lazy" src="img/home-simple.webp" width="640" height="1214" alt="シンプル表示のホーム画面。ルアー・ライン・リール・釣行記録の4項目と、大きなボタン"></div></div><p class="cap"><b>ホーム</b><br>項目を選ぶと、下に一覧が出る</p></div>
+      <div class="hs"><span class="tag"><span class="pill-step std">標準の表示</span></span><div class="phone"><div class="viewport"><img loading="lazy" src="img/list-std.webp" width="640" height="858" alt="標準の表示のルアー一覧。各行に小さなボタンが並んでいる"></div></div><p class="cap"><b>ルアー一覧</b><br>各行に、小さなボタン</p></div>
+      <div class="hs hlc"><span class="tag"><span class="pill-step">シンプル表示</span></span><div class="phone"><div class="viewport"><img loading="lazy" src="img/list-simple.webp" width="640" height="1056" alt="シンプル表示のルアー一覧。行を選ぶと、画面の下にヒット＋1・ロスト・編集の大きなボタンが出ている"></div></div><p class="cap"><b>ルアー一覧</b><br>行を押すと、下に大きなボタン</p></div>
+    </div>
+    <p class="hint">← 横にスワイプ →</p>
+
+    <div class="benefits">
+      <div class="benefit"><div class="ic">👆</div><div><h3>大きなボタンで、すぐ操作</h3><p>ホームで「ルアー・ライン・リール・釣行記録」を選ぶと、下に一覧が出ます。<b>「AIで読み取る」「登録する」「マイレコード・釣果分析」</b>の大きなボタンで、すぐ操作できます。</p></div></div>
+      <div class="benefit"><div class="ic">🔀</div><div><h3>いつでも標準の表示と切り替え</h3><p>画面の上のボタン（「🔍 シンプル」「📱 標準へ」）で、いつでも切り替えられます。初回起動・アップデートのときに、選べます。</p></div></div>
+    </div>
+
+    <div class="flowhead">今月の改善の流れ<span>「もっと見やすく、使いやすく」</span></div>
+    <div class="flow">
+      <div class="fstep"><div class="d">10月上旬<b>v2.71</b></div><p>AIの刷新で、読み取りが速く</p></div>
+      <div class="fstep"><div class="d">10/5<b>v2.72</b></div><p>文字とボタンを大きく</p></div>
+      <div class="fstep"><div class="d">10/13<b>v2.74</b></div><p>写真からまとめて登録</p></div>
+      <div class="fstep hl"><div class="d">10/22<b>v2.80</b></div><p><b>シンプル表示</b></p></div>
+    </div>
+    <div class="cta-row"><a class="play-cta sm" data-play data-goatcounter-click="lp-dl-p4" href="https://play.google.com/store/apps/details?id=com.anglerslab.linemanager&amp;referrer=utm_source%3Dofficial_site%26utm_medium%3Dweb%26utm_campaign%3Dlp" target="_blank" rel="noopener">▶ 無料で試してみる</a></div>
   </div>
 </section>
 
@@ -349,7 +404,6 @@ footer small{display:block;line-height:1.7;opacity:.7}
       <h2>釣るほど、データが貯まっていく。</h2>
     </div>
     <div class="hscroll">
-      <div class="hs"><div class="phone"><div class="viewport"><img loading="lazy" src="img/home.webp" width="640" height="1192" alt="ホーム画面"></div></div><h3>ホームで、今年の釣りがひと目</h3><p>釣行回数・釣果数・月別グラフ・記録更新</p></div>
       <div class="hs"><div class="phone"><div class="viewport"><img loading="lazy" src="img/record.webp" width="640" height="1116" alt="マイレコード・釣果分析の画面"></div></div><h3>マイレコードで、振り返る</h3><p>自己最高サイズ・魚種別・釣り方別・釣り場別・潮まわり別</p></div>
       <div class="hs"><div class="card"><img loading="lazy" src="img/sharecard.webp" width="540" height="960" alt="マイレコードから作ったSNS共有カードの例"></div><h3>カードにして、SNSで共有</h3><p>釣果写真と数字を、1枚のカード画像に</p></div>
     </div>
@@ -368,6 +422,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
     <details>
       <summary>ご利用前にお読みください（できること・できないこと）</summary>
       <ul>
+        <li>「シンプル表示」で変わるのは、<b>ホームと一覧</b>（ルアー・保有一覧・釣行一覧）です。登録や詳細の画面は、標準の表示と同じです。機能は減りません。今年の記録やグラフは、標準の表示で見られます。</li>
         <li>「写真からまとめて登録」：1つの釣行に入れられる写真は<b>最大15枚</b>です。超えた分の釣果は、写真なしで登録されます。</li>
         <li>同じ1匹としてまとめた写真は、<b>最初の1枚だけ</b>を取り込みます。</li>
         <li>撮影時刻が残っていない写真（LINEで送られた写真など）は、時刻なしで登録されます。撮影時刻の表示は、v2.74 以降に取り込んだ写真から行われます。</li>
@@ -497,7 +552,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
         }
       });
     }, { threshold: 0.35 });
-    ['p1','p2','p3','more','final'].forEach(function(id){ var el = document.getElementById(id); if (el) vo.observe(el); });
+    ['p1','p2','p3','p4','more','final'].forEach(function(id){ var el = document.getElementById(id); if (el) vo.observe(el); });
   }
 })();
 </script>

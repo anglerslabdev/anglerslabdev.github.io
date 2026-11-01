@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ルアー・ライン・リール・釣果を一元管理｜デジタルタックルノート（Androidアプリ）</title>
-<meta name="description" content="「このルアー、何匹釣れた？」「このリール、何巻いてた？」をゼロに。パッケージを撮るだけのAI登録、ヒットランキング、ライン×リールの紐付け管理、釣り中は撮るだけの「まとめて登録」。文字とボタンを大きくできるシンプル表示も。釣り人の困りごとを解決するAndroidアプリ（基本無料）。">
+<title>ルアー・ライン・リール・ロッド・小物・釣果を一元管理｜デジタルタックルノート（Androidアプリ）</title>
+<meta name="description" content="「このルアー、何匹釣れた？」「このリール、何巻いてた？」をゼロに。パッケージを撮るだけのAI登録、ヒットランキング、ライン×リールの紐付け管理、釣り中は撮るだけの「まとめて登録」。ロッド・小物の管理と、釣行ごとの使用タックルの記録も。文字とボタンを大きくできるシンプル表示も。釣り人の困りごとを解決するAndroidアプリ（基本無料）。">
 <link rel="canonical" href="https://anglers-lab.net/lp/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="デジタルタックルノート by Angler's Lab">
 <meta property="og:title" content="釣りの「あれ、どうだっけ？」を、ゼロに。｜デジタルタックルノート">
-<meta property="og:description" content="釣り人の困りごと解決に特化した、ルアー・ライン・リール・釣果の管理アプリ（Android・基本無料）。パッケージを撮るだけで登録、釣り中は撮るだけで、あとでまとめて登録。文字とボタンを大きくできるシンプル表示も選べます。">
+<meta property="og:description" content="釣り人の困りごと解決に特化した、ルアー・ライン・リール・ロッド・小物・釣果の管理アプリ（Android・基本無料）。パッケージを撮るだけで登録、釣行ごとの使用タックルも記録。文字とボタンを大きくできるシンプル表示も選べます。">
 <meta property="og:url" content="https://anglers-lab.net/lp/">
 <meta property="og:image" content="https://anglers-lab.net/lp/img/ogp.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -228,8 +228,10 @@ footer small{display:block;line-height:1.7;opacity:.7}
 @media(min-width:900px){
   .more .hscroll{grid-template-columns:repeat(2,minmax(0,1fr));max-width:620px;margin-left:auto;margin-right:auto}
   #p4 .hscroll{grid-template-columns:repeat(4,minmax(0,1fr));max-width:920px;margin-left:auto;margin-right:auto}
-  .flow{grid-template-columns:repeat(4,minmax(0,1fr));max-width:920px}
+  #p5 .hscroll{grid-template-columns:repeat(5,minmax(0,1fr));max-width:1040px;margin-left:auto;margin-right:auto;gap:18px}
+  .flow{grid-template-columns:repeat(5,minmax(0,1fr));max-width:1040px}
 }
+@media(max-width:899px){.flow .fstep.hl:last-child{grid-column:1/-1}}
 </style>
 </head>
 <body>
@@ -250,13 +252,14 @@ footer small{display:block;line-height:1.7;opacity:.7}
     <div class="hero-text">
       <span class="badge">🎣 Androidアプリ｜基本無料</span>
       <h1><span class="ln">釣りの</span><span class="ln">「あれ、どうだっけ？」</span><span class="ln">を、<em>ゼロ</em>に。</span></h1>
-      <p class="sub">釣り人の困りごと解決に特化した、ルアー・ライン・リール・釣果の管理アプリです。</p>
+      <p class="sub">釣り人の困りごと解決に特化した、ルアー・ライン・リール・ロッド・小物・釣果の管理アプリです。</p>
 
       <div class="qs">
         <a class="q" href="#p1" data-goatcounter-click="lp-nav-p1"><span class="n">1</span><span class="t">「このルアー、何匹釣れた？」</span><span class="go">解決 ›</span></a>
         <a class="q" href="#p2" data-goatcounter-click="lp-nav-p2"><span class="n">2</span><span class="t">「どのリールに、どのライン巻いた？ メンテはいつ？」</span><span class="go">解決 ›</span></a>
         <a class="q" href="#p3" data-goatcounter-click="lp-nav-p3"><span class="n">3</span><span class="t">「釣り中は、登録している時間がない…」</span><span class="go">解決 ›</span></a>
         <a class="q" href="#p4" data-goatcounter-click="lp-nav-p4"><span class="n">4</span><span class="t">「文字が小さくて、ボタンが押しにくい…」</span><span class="go">解決 ›</span></a>
+        <a class="q" href="#p5" data-goatcounter-click="lp-nav-p5"><span class="n">5</span><span class="t">「あの日釣れたのは、どのタックルだった？」</span><span class="go">解決 ›</span></a>
       </div>
 
       <div class="cta-box" id="hero-cta">
@@ -264,7 +267,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5z"/></svg>
           Google Play で無料ダウンロード
         </a>
-        <p class="cta-note">Android 7.0 以上｜基本機能は無料（PRO版あり）<br>最新版：v2.80（2026年10月22日公開）</p>
+        <p class="cta-note">Android 7.0 以上｜基本機能は無料（PRO版あり）<br>最新版：v2.90（2026年11月1日公開）</p>
         <p class="pc-note">📱 スマホ（Android）でこのページを開くと、そのままインストールできます</p>
         <div class="survey">
           <b>📱 iPhone版を検討しています</b>
@@ -276,7 +279,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
     </div>
     <div class="hero-vis">
       <div class="phone"><div class="viewport"><img src="img/home-std.webp" width="640" height="1198" alt="標準の表示のホーム画面。上のボタンで、シンプル表示に切り替えられる。ルアー・ライン・リール・釣行の4つの管理と、今年の釣行数・釣果数が表示されている"></div></div>
-      <div class="chip c1">ルアー・ライン・リール・<br>釣行を、1つに</div>
+      <div class="chip c1">ルアー・ライン・リール・<br>ロッド・小物を、1つに</div>
       <div class="chip c2">カメラAI読取で<br>登録がラク</div>
       <div class="chip c3">ボタンひとつで<br>シンプル表示へ</div>
     </div>
@@ -319,7 +322,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
   <div class="wrap">
     <div class="center">
       <span class="eyebrow">POINT 2 ｜ 一元管理</span>
-      <h2>ルアー・ライン・リール・釣果を、<br>これ1本で。</h2>
+      <h2>ルアー・ライン・リール・ロッド・小物・釣果を、<br>これ1本で。</h2>
       <p class="lead">管理するものがバラバラだと、「あれ、どうだっけ？」が増えていきます。釣りの道具と釣果に特化して、ひとつにまとめました。</p>
     </div>
 
@@ -367,7 +370,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
 <section class="sec alt" id="p4">
   <div class="wrap">
     <div class="center">
-      <span class="eyebrow">POINT 4 ｜ 見やすさ<i>NEW</i></span>
+      <span class="eyebrow">POINT 4 ｜ 見やすさ</span>
       <h2>文字もボタンも、<br>大きく選べる。</h2>
       <p class="lead">老眼の方、文字を大きくしたい方、操作をシンプルにしたい方へ。ホームの情報をしぼった「シンプル表示」を追加しました。</p>
     </div>
@@ -385,14 +388,43 @@ footer small{display:block;line-height:1.7;opacity:.7}
       <div class="benefit"><div class="ic">🔀</div><div><h3>いつでも標準の表示と切り替え</h3><p>画面の上のボタン（「🔍 シンプル」「📱 標準へ」）で、いつでも切り替えられます。初回起動・アップデートのときに、選べます。</p></div></div>
     </div>
 
-    <div class="flowhead">今月の改善の流れ<span>「もっと見やすく、使いやすく」</span></div>
+    <div class="cta-row"><a class="play-cta sm" data-play data-goatcounter-click="lp-dl-p4" href="https://play.google.com/store/apps/details?id=com.anglerslab.linemanager&amp;referrer=utm_source%3Dofficial_site%26utm_medium%3Dweb%26utm_campaign%3Dlp" target="_blank" rel="noopener">▶ 無料で試してみる</a></div>
+  </div>
+</section>
+
+<!-- ================= ポイント5：タックル全体 ================= -->
+<section class="sec" id="p5">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">POINT 5 ｜ タックル全体<i>NEW</i></span>
+      <h2>タックルのすべてを、<br>1つのアプリに。</h2>
+      <p class="lead"><b>あの日釣れたのは、どのタックルだった？</b> ルアー・ライン・リールに、ロッドと小物が加わり、釣行ごとに使ったタックルも残せるようになりました。</p>
+    </div>
+
+    <div class="hscroll">
+      <div class="hs hlc"><span class="tag"><span class="pill-step">使用タックル</span></span><div class="phone"><div class="viewport"><img loading="lazy" src="img/p5-used.webp" width="640" height="1126" alt="釣行の画面。使用ルアーの下に、使用タックル（Rod・Reel・Line・Leader）とコピーのボタン"></div></div><p class="cap"><b>釣行ごとに記録</b><br>ロッド・リール・ライン・リーダー</p></div>
+      <div class="hs"><span class="tag"><span class="pill-step std">タックルセット</span></span><div class="phone"><div class="viewport"><img loading="lazy" src="img/p5-set.webp" width="640" height="1070" alt="タックルセットの一覧。ロッドとリール、ラインが並び、編集・削除・コピーのボタンがある"></div></div><p class="cap"><b>よく使う組み合わせ</b><br>選ぶだけで入る</p></div>
+      <div class="hs"><span class="tag"><span class="pill-step std">共有カード</span></span><div class="phone"><div class="viewport"><img loading="lazy" src="img/p5-share.webp" width="640" height="1138" alt="SNS共有カード。釣行データに、釣果・使用ルアー・メモ・潮まわり・使用タックルが載っている"></div></div><p class="cap"><b>使用タックル入り</b><br>SNSに、そのまま発信</p></div>
+      <div class="hs"><span class="tag"><span class="pill-step std">ロッド</span></span><div class="phone"><div class="viewport"><img loading="lazy" src="img/p5-rod.webp" width="640" height="1094" alt="ロッドAI読取結果の画面。型番・メーカー・長さ・タイプ・用途と、ネットで見つけた情報"></div></div><p class="cap"><b>ロッドAI読取</b><br>型番の写真から入力</p></div>
+      <div class="hs"><span class="tag"><span class="pill-step std">小物</span></span><div class="phone"><div class="viewport"><img loading="lazy" src="img/p5-komono.webp" width="640" height="1228" alt="小物の一覧。在庫の個数と、−1使用・＋1補充・買う・外す・編集・削除のボタン"></div></div><p class="cap"><b>小物の在庫管理</b><br>−1／＋1で、在庫を管理</p></div>
+    </div>
+    <p class="hint">← 横にスワイプ →</p>
+
+    <div class="benefits">
+      <div class="benefit"><div class="ic">🎒</div><div><h3>使用タックルを、釣行ごとに記録</h3><p>ロッド・リール・ライン・リーダーを残せます。リールを選ぶと、<b>巻いているラインとリーダーが自動で入ります</b>。よく使う組み合わせは<b>「タックルセット」</b>に登録して、選ぶだけ。ラインを巻き替えても、リールを手放しても、当時のタックルが残ります。SNSの共有カードにも載せられます。</p></div></div>
+      <div class="benefit"><div class="ic">🎣</div><div><h3>ロッドも、写真で登録</h3><p>長さ・タイプ・用途・適合ルアー／ラインを記録。型番の写真から<b>「ロッドAI読取」</b>。<b>「🔍 ネットで詳しく調べる」</b>で、正式な情報も探せます。</p></div></div>
+      <div class="benefit"><div class="ic">🧷</div><div><h3>小物の在庫を、−1／＋1で</h3><p>スナップ・おもり・針などの在庫を管理。少なくなったら、<b>買い物リストに入れるか聞きます</b>。購入先のWebサイトを3つまで登録して、一覧からワンタップで開けます。「小物AI読取」で、品名・メーカー・サイズ・入数も入力できます。</p></div></div>
+    </div>
+
+    <div class="flowhead">最近のアップデートの流れ<span>10月〜11月</span></div>
     <div class="flow">
       <div class="fstep"><div class="d">10月上旬<b>v2.71</b></div><p>AIの刷新で、読み取りが速く</p></div>
       <div class="fstep"><div class="d">10/5<b>v2.72</b></div><p>文字とボタンを大きく</p></div>
       <div class="fstep"><div class="d">10/13<b>v2.74</b></div><p>写真からまとめて登録</p></div>
-      <div class="fstep hl"><div class="d">10/22<b>v2.80</b></div><p><b>シンプル表示</b></p></div>
+      <div class="fstep"><div class="d">10/22<b>v2.80</b></div><p>シンプル表示</p></div>
+      <div class="fstep hl"><div class="d">11/1<b>v2.90</b></div><p><b>ロッド・小物・使用タックル</b></p></div>
     </div>
-    <div class="cta-row"><a class="play-cta sm" data-play data-goatcounter-click="lp-dl-p4" href="https://play.google.com/store/apps/details?id=com.anglerslab.linemanager&amp;referrer=utm_source%3Dofficial_site%26utm_medium%3Dweb%26utm_campaign%3Dlp" target="_blank" rel="noopener">▶ 無料で試してみる</a></div>
+    <div class="cta-row"><a class="play-cta sm" data-play data-goatcounter-click="lp-dl-p5" href="https://play.google.com/store/apps/details?id=com.anglerslab.linemanager&amp;referrer=utm_source%3Dofficial_site%26utm_medium%3Dweb%26utm_campaign%3Dlp" target="_blank" rel="noopener">▶ 無料で試してみる</a></div>
   </div>
 </section>
 
@@ -417,12 +449,20 @@ footer small{display:block;line-height:1.7;opacity:.7}
     <div class="price">
       <span class="eyebrow">PRICE</span>
       <h2 style="font-size:clamp(21px,5.4vw,28px)">料金について</h2>
-      <p><b>基本機能は無料</b>です。バックアップ・復元などの<b>PRO版</b>もご用意しています。AI読取は、2026年10月現在、無料版でも回数制限なしでご利用いただけます。</p>
+      <p><b>基本機能は無料</b>です。バックアップ・復元などの<b>PRO版</b>もご用意しています。AI読取は、2026年11月現在、無料版でも回数制限なしでご利用いただけます。</p>
     </div>
     <details>
       <summary>ご利用前にお読みください（できること・できないこと）</summary>
       <ul>
         <li>「シンプル表示」で変わるのは、<b>ホームと一覧</b>（ルアー・保有一覧・釣行一覧）です。登録や詳細の画面は、標準の表示と同じです。機能は減りません。今年の記録やグラフは、標準の表示で見られます。</li>
+        <li>使用タックルは、<b>釣行ごと</b>の記録です（1匹ごとではありません）。1回の釣行に、複数のタックルを残せます。</li>
+        <li>タックルセットに保存されるのは、<b>ロッドとリール</b>です。ラインとリーダーは、選んだときにリールに巻いているものが入ります。</li>
+        <li>ロッドは、使用回数を数えません。使用タックルを記録すると、<b>リールとラインの使用回数</b>が自動で増えます。</li>
+        <li>「ネットで詳しく調べる」は、<b>ロッドとリールの機能</b>です（小物は、AI読取のみ）。年式違いのモデルの情報が混ざることがあります。</li>
+        <li>ロッドAI読取は、写真の写り方やモデルによって、読み取れないことがあります。結果は、確かめてから登録してください。</li>
+        <li>小物の在庫が少なくなったときは、買い物リストに<b>入れるか聞きます</b>（自動では入りません）。</li>
+        <li>無料で登録できる数：ライン・リール・ロッドは、<b>広告なしで3つまで</b>。4つ目からは、広告1回で1つずつ増え、最大10個。ルアーと小物は、合わせて広告なしで10個（広告1回で2個ずつ増えます）。PRO版は、上限がありません。</li>
+        <li>画面に表示されている商品名は、利用者が登録した例です。各社の商標は、各社に帰属します。</li>
         <li>「写真からまとめて登録」：1つの釣行に入れられる写真は<b>最大15枚</b>です。超えた分の釣果は、写真なしで登録されます。</li>
         <li>同じ1匹としてまとめた写真は、<b>最初の1枚だけ</b>を取り込みます。</li>
         <li>撮影時刻が残っていない写真（LINEで送られた写真など）は、時刻なしで登録されます。撮影時刻の表示は、v2.74 以降に取り込んだ写真から行われます。</li>
@@ -552,7 +592,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
         }
       });
     }, { threshold: 0.35 });
-    ['p1','p2','p3','p4','more','final'].forEach(function(id){ var el = document.getElementById(id); if (el) vo.observe(el); });
+    ['p1','p2','p3','p4','p5','more','final'].forEach(function(id){ var el = document.getElementById(id); if (el) vo.observe(el); });
   }
 })();
 </script>

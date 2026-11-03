@@ -218,20 +218,42 @@ footer small{display:block;line-height:1.7;opacity:.7}
 .hs.hlc .cap b{color:var(--teal)}
 .flowhead{margin:30px 0 12px;font-weight:900;font-size:17px;color:var(--navy);text-align:center}
 .flowhead span{display:block;font-size:13px;font-weight:700;color:var(--teal);margin-top:2px}
-.flow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:640px;margin:0 auto}
-.fstep{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.flow{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;max-width:1040px;margin:0 auto;-webkit-overflow-scrolling:touch}
+.fstep{flex:0 0 auto;min-width:136px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 13px}
 .fstep .d{font-size:12px;font-weight:700;color:var(--teal);line-height:1.4}
 .fstep .d b{margin-left:8px;font-size:16px;font-weight:900;color:var(--navy)}
-.fstep p{font-size:13px;line-height:1.6;color:var(--gray);margin-top:4px}
+.fstep p{font-size:13px;line-height:1.6;color:var(--gray);margin-top:2px}
 .fstep.hl{border:2px solid var(--teal);background:#e3f7f3}
 .fstep.hl p{color:var(--ink)}
 @media(min-width:900px){
   .more .hscroll{grid-template-columns:repeat(2,minmax(0,1fr));max-width:620px;margin-left:auto;margin-right:auto}
   #p4 .hscroll{grid-template-columns:repeat(4,minmax(0,1fr));max-width:920px;margin-left:auto;margin-right:auto}
   #p5 .hscroll{grid-template-columns:repeat(5,minmax(0,1fr));max-width:1040px;margin-left:auto;margin-right:auto;gap:18px}
-  .flow{grid-template-columns:repeat(5,minmax(0,1fr));max-width:1040px}
+  .flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));max-width:1040px;overflow:visible}
+  .fstep{min-width:0;padding:12px 14px}
+  .fstep p{margin-top:4px}
 }
 @media(max-width:899px){.flow .fstep.hl:last-child{grid-column:1/-1}}
+/* ---------- ポイント1：全体像 ---------- */
+.all-wrap{display:grid;grid-template-columns:1fr;gap:10px;max-width:440px;margin:28px auto 0;justify-items:center}
+.all-photo{margin:0;width:100%}
+.all-photo img{display:block;width:100%;height:auto;border-radius:18px;box-shadow:0 22px 44px -22px rgba(10,35,66,.55)}
+.all-arrow,.all-app{display:none}
+.all-sub{margin:20px auto 0;text-align:center;font-size:14px;color:var(--navy)}
+.all-chips{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:8px;max-width:440px;margin:10px auto 0}
+.all-chips li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 8px;text-align:center;font-weight:900;font-size:14px;color:var(--navy)}
+.all-note{margin:14px auto 0;max-width:560px;text-align:center;font-size:13px;color:var(--gray);line-height:1.7}
+.all-points{list-style:none;display:grid;gap:8px;max-width:440px;margin:18px auto 0}
+.all-points li{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:14px;color:var(--navy)}
+@media(min-width:900px){
+  .all-wrap{grid-template-columns:1.15fr auto .85fr;max-width:1000px;align-items:center;gap:26px}
+  .all-arrow{display:block;font-size:52px;line-height:1;color:var(--cta);font-weight:900}
+  .all-app{display:flex;justify-content:center;width:100%}
+  .all-app .phone{width:min(100%,300px)}
+  .all-app .viewport{max-height:520px}
+  .all-sub,.all-chips{display:none}
+  .all-points{grid-template-columns:repeat(3,1fr);max-width:1000px}
+}
 </style>
 </head>
 <body>
@@ -255,11 +277,12 @@ footer small{display:block;line-height:1.7;opacity:.7}
       <p class="sub">釣り人の困りごと解決に特化した、ルアー・ライン・リール・ロッド・小物・釣果の管理アプリです。</p>
 
       <div class="qs">
-        <a class="q" href="#p1" data-goatcounter-click="lp-nav-p1"><span class="n">1</span><span class="t">「このルアー、何匹釣れた？」</span><span class="go">解決 ›</span></a>
-        <a class="q" href="#p2" data-goatcounter-click="lp-nav-p2"><span class="n">2</span><span class="t">「どのリールに、どのライン巻いた？ メンテはいつ？」</span><span class="go">解決 ›</span></a>
-        <a class="q" href="#p3" data-goatcounter-click="lp-nav-p3"><span class="n">3</span><span class="t">「釣り中は、登録している時間がない…」</span><span class="go">解決 ›</span></a>
-        <a class="q" href="#p4" data-goatcounter-click="lp-nav-p4"><span class="n">4</span><span class="t">「文字が小さくて、ボタンが押しにくい…」</span><span class="go">解決 ›</span></a>
-        <a class="q" href="#p5" data-goatcounter-click="lp-nav-p5"><span class="n">5</span><span class="t">「あの日釣れたのは、どのタックルだった？」</span><span class="go">解決 ›</span></a>
+        <a class="q" href="#p0" data-goatcounter-click="lp-nav-p0"><span class="n">1</span><span class="t">「タックルが多すぎて、何がどこにあるか分からない…」</span><span class="go">解決 ›</span></a>
+        <a class="q" href="#p1" data-goatcounter-click="lp-nav-p1"><span class="n">2</span><span class="t">「このルアー、何匹釣れた？」</span><span class="go">解決 ›</span></a>
+        <a class="q" href="#p2" data-goatcounter-click="lp-nav-p2"><span class="n">3</span><span class="t">「どのリールに、どのライン巻いた？ メンテはいつ？」</span><span class="go">解決 ›</span></a>
+        <a class="q" href="#p3" data-goatcounter-click="lp-nav-p3"><span class="n">4</span><span class="t">「釣り中は、登録している時間がない…」</span><span class="go">解決 ›</span></a>
+        <a class="q" href="#p4" data-goatcounter-click="lp-nav-p4"><span class="n">5</span><span class="t">「文字が小さくて、ボタンが押しにくい…」</span><span class="go">解決 ›</span></a>
+        <a class="q" href="#p5" data-goatcounter-click="lp-nav-p5"><span class="n">6</span><span class="t">「あの日釣れたのは、どのタックルだった？」</span><span class="go">解決 ›</span></a>
       </div>
 
       <div class="cta-box" id="hero-cta">
@@ -287,11 +310,37 @@ footer small{display:block;line-height:1.7;opacity:.7}
   <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff"/></svg>
 </section>
 
+<!-- ================= ポイント1：全体像 ================= -->
+<section class="sec alt" id="p0">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">POINT 1 ｜ 全体像</span>
+      <h2>多すぎるタックルも、<br>1つのアプリで管理。</h2>
+      <p class="lead">ルアー・ロッド・リール・ライン・小物。釣りの道具と釣果を、まとめて記録・管理できます。</p>
+    </div>
+
+    <div class="all-wrap">
+      <figure class="all-photo"><img loading="lazy" src="img/all-tackle.webp" width="740" height="1310" alt="開発者の釣り具の写真。ロッド、リール、ライン、ルアー、小物（ケースやタックルボックス）が並び、それぞれに番号の注釈が付いている"></figure>
+      <div class="all-arrow" aria-hidden="true">▶</div>
+      <div class="all-app"><div class="phone fade"><div class="viewport"><img loading="lazy" src="img/home-std-v290.webp" width="640" height="1229" alt="標準の表示のホーム画面。ルアー・小物、ライン、リール・ロッド、釣行の4つにまとめて登録できる"></div></div></div>
+    </div>
+    <ul class="all-chips"><li>🪝 ルアー・小物</li><li>🧵 ライン</li><li>⚙️ リール・ロッド</li><li>🎣 釣行</li></ul>
+    <p class="all-note">小物は、種類を自分で追加できます。タックルボックスなどの道具も、登録できます。</p>
+
+    <ul class="all-points">
+      <li><span>🔎</span><b>持っているか、すぐ分かる</b></li>
+      <li><span>🔗</span><b>道具どうしを、つなげて管理</b></li>
+      <li><span>🎣</span><b>釣果まで、つながる</b></li>
+    </ul>
+    <div class="cta-row"><a class="play-cta sm" data-play data-goatcounter-click="lp-dl-p0" href="https://play.google.com/store/apps/details?id=com.anglerslab.linemanager&amp;referrer=utm_source%3Dofficial_site%26utm_medium%3Dweb%26utm_campaign%3Dlp" target="_blank" rel="noopener">▶ 無料で試してみる</a></div>
+  </div>
+</section>
+
 <!-- ================= ポイント1：ルアー管理 ================= -->
 <section class="sec" id="p1">
   <div class="wrap">
     <div class="center">
-      <span class="eyebrow">POINT 1 ｜ ルアー管理</span>
+      <span class="eyebrow">POINT 2 ｜ ルアー管理</span>
       <h2>ルアーは、撮って登録。<br>パッケージは、捨てていい。</h2>
       <p class="lead">持っているルアーを写真つきで一覧管理。釣れたルアーは、ヒット数が自動で貯まります。</p>
     </div>
@@ -309,10 +358,6 @@ footer small{display:block;line-height:1.7;opacity:.7}
       <div class="benefit"><div class="ic">💀</div><div><h3>ロストしても、もう一度買える</h3><p>「メチャ釣れたルアーをロストしたのに、型番を覚えていない！」でも、ロスト履歴が記録に残り、<b>買い物リストにそのまま追加</b>できます。登録から再購入まで、一連の流れに対応しています。</p></div></div>
     </div>
 
-    <div class="wide">
-      <div class="img"><img loading="lazy" src="img/ai-buttons.webp" width="600" height="346" alt="ルアーAI読取・ラインAI読取・リールAI読取の3つのボタン"></div>
-      <p class="cap">ルアー・ライン・リールに、それぞれ「AI読取」ボタン</p>
-    </div>
     <div class="cta-row"><a class="play-cta sm" data-play data-goatcounter-click="lp-dl-p1" href="https://play.google.com/store/apps/details?id=com.anglerslab.linemanager&amp;referrer=utm_source%3Dofficial_site%26utm_medium%3Dweb%26utm_campaign%3Dlp" target="_blank" rel="noopener">▶ 無料で試してみる</a></div>
   </div>
 </section>
@@ -321,9 +366,8 @@ footer small{display:block;line-height:1.7;opacity:.7}
 <section class="sec alt" id="p2">
   <div class="wrap">
     <div class="center">
-      <span class="eyebrow">POINT 2 ｜ 一元管理</span>
-      <h2>ルアー・ライン・リール・ロッド・小物・釣果を、<br>これ1本で。</h2>
-      <p class="lead">管理するものがバラバラだと、「あれ、どうだっけ？」が増えていきます。釣りの道具と釣果に特化して、ひとつにまとめました。</p>
+      <span class="eyebrow">POINT 3 ｜ 一元管理</span>
+      <h2>ラインとリールも、メンテも、<br>ひとつにまとめて。</h2>
     </div>
 
     <div class="duo">
@@ -345,7 +389,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
 <section class="sec" id="p3">
   <div class="wrap">
     <div class="center">
-      <span class="eyebrow">POINT 3 ｜ まとめて登録</span>
+      <span class="eyebrow">POINT 4 ｜ まとめて登録</span>
       <h2>釣っている間は、撮るだけ。<br>登録は、あとでまとめて。</h2>
       <p class="lead">釣りの最中は、アプリに登録している時間なんてありません。写真を撮っておけば、帰ってから撮影時刻ごとに釣果をまとめて登録できます。</p>
     </div>
@@ -370,7 +414,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
 <section class="sec alt" id="p4">
   <div class="wrap">
     <div class="center">
-      <span class="eyebrow">POINT 4 ｜ 見やすさ</span>
+      <span class="eyebrow">POINT 5 ｜ 見やすさ</span>
       <h2>文字もボタンも、<br>大きく選べる。</h2>
       <p class="lead">老眼の方、文字を大きくしたい方、操作をシンプルにしたい方へ。ホームの情報をしぼった「シンプル表示」を追加しました。</p>
     </div>
@@ -396,8 +440,8 @@ footer small{display:block;line-height:1.7;opacity:.7}
 <section class="sec" id="p5">
   <div class="wrap">
     <div class="center">
-      <span class="eyebrow">POINT 5 ｜ タックル全体<i>NEW</i></span>
-      <h2>タックルのすべてを、<br>1つのアプリに。</h2>
+      <span class="eyebrow">POINT 6 ｜ 新機能<i>NEW</i></span>
+      <h2>ロッドも、小物も、<br>使用タックルも。</h2>
       <p class="lead"><b>あの日釣れたのは、どのタックルだった？</b> ルアー・ライン・リールに、ロッドと小物が加わり、釣行ごとに使ったタックルも残せるようになりました。</p>
     </div>
 
@@ -411,9 +455,9 @@ footer small{display:block;line-height:1.7;opacity:.7}
     <p class="hint">← 横にスワイプ →</p>
 
     <div class="benefits">
-      <div class="benefit"><div class="ic">🎒</div><div><h3>使用タックルを、釣行ごとに記録</h3><p>ロッド・リール・ライン・リーダーを残せます。リールを選ぶと、<b>巻いているラインとリーダーが自動で入ります</b>。よく使う組み合わせは<b>「タックルセット」</b>に登録して、選ぶだけ。ラインを巻き替えても、リールを手放しても、当時のタックルが残ります。SNSの共有カードにも載せられます。</p></div></div>
+      <div class="benefit"><div class="ic">🎒</div><div><h3>使用タックルを、釣行ごとに記録</h3><p>ロッド・リール・ライン・リーダーを残せます。リールを選ぶと、<b>巻いているラインとリーダーが自動で入ります</b>。よく使う組み合わせは<b>「タックルセット」</b>で、選ぶだけ。</p></div></div>
       <div class="benefit"><div class="ic">🎣</div><div><h3>ロッドも、写真で登録</h3><p>長さ・タイプ・用途・適合ルアー／ラインを記録。型番の写真から<b>「ロッドAI読取」</b>。<b>「🔍 ネットで詳しく調べる」</b>で、正式な情報も探せます。</p></div></div>
-      <div class="benefit"><div class="ic">🧷</div><div><h3>小物の在庫を、−1／＋1で</h3><p>スナップ・おもり・針などの在庫を管理。少なくなったら、<b>買い物リストに入れるか聞きます</b>。購入先のWebサイトを3つまで登録して、一覧からワンタップで開けます。「小物AI読取」で、品名・メーカー・サイズ・入数も入力できます。</p></div></div>
+      <div class="benefit"><div class="ic">🧷</div><div><h3>小物の在庫を、−1／＋1で</h3><p>在庫を −1／＋1 で管理。少なくなったら、<b>買い物リストに入れるか聞きます</b>。購入先のWebサイトも、3つまで登録できます。</p></div></div>
     </div>
 
     <div class="flowhead">最近のアップデートの流れ<span>10月〜11月</span></div>
@@ -462,7 +506,6 @@ footer small{display:block;line-height:1.7;opacity:.7}
         <li>ロッドAI読取は、写真の写り方やモデルによって、読み取れないことがあります。結果は、確かめてから登録してください。</li>
         <li>小物の在庫が少なくなったときは、買い物リストに<b>入れるか聞きます</b>（自動では入りません）。</li>
         <li>無料で登録できる数：ライン・リール・ロッドは、<b>広告なしで3つまで</b>。4つ目からは、広告1回で1つずつ増え、最大10個。ルアーと小物は、合わせて広告なしで10個（広告1回で2個ずつ増えます）。PRO版は、上限がありません。</li>
-        <li>画面に表示されている商品名は、利用者が登録した例です。各社の商標は、各社に帰属します。</li>
         <li>「写真からまとめて登録」：1つの釣行に入れられる写真は<b>最大15枚</b>です。超えた分の釣果は、写真なしで登録されます。</li>
         <li>同じ1匹としてまとめた写真は、<b>最初の1枚だけ</b>を取り込みます。</li>
         <li>撮影時刻が残っていない写真（LINEで送られた写真など）は、時刻なしで登録されます。撮影時刻の表示は、v2.74 以降に取り込んだ写真から行われます。</li>
@@ -592,7 +635,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
         }
       });
     }, { threshold: 0.35 });
-    ['p1','p2','p3','p4','p5','more','final'].forEach(function(id){ var el = document.getElementById(id); if (el) vo.observe(el); });
+    ['p0','p1','p2','p3','p4','p5','more','final'].forEach(function(id){ var el = document.getElementById(id); if (el) vo.observe(el); });
   }
 })();
 </script>

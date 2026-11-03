@@ -235,24 +235,25 @@ footer small{display:block;line-height:1.7;opacity:.7}
 }
 @media(max-width:899px){.flow .fstep.hl:last-child{grid-column:1/-1}}
 /* ---------- ポイント1：全体像 ---------- */
-.all-wrap{display:grid;grid-template-columns:1fr;gap:10px;max-width:440px;margin:28px auto 0;justify-items:center}
-.all-photo{margin:0;width:100%}
+.all-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;max-width:440px;margin:28px auto 0}
+.all-photo{margin:0;width:min(86%,300px)}
 .all-photo img{display:block;width:100%;height:auto;border-radius:18px;box-shadow:0 22px 44px -22px rgba(10,35,66,.55)}
 .all-arrow,.all-app{display:none}
-.all-sub{margin:20px auto 0;text-align:center;font-size:14px;color:var(--navy)}
-.all-chips{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:8px;max-width:440px;margin:10px auto 0}
+.all-chips{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:8px;max-width:440px;margin:16px auto 0}
 .all-chips li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 8px;text-align:center;font-weight:900;font-size:14px;color:var(--navy)}
 .all-note{margin:14px auto 0;max-width:560px;text-align:center;font-size:13px;color:var(--gray);line-height:1.7}
 .all-points{list-style:none;display:grid;gap:8px;max-width:440px;margin:18px auto 0}
 .all-points li{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:14px;color:var(--navy)}
 @media(min-width:900px){
-  .all-wrap{grid-template-columns:1.15fr auto .85fr;max-width:1000px;align-items:center;gap:26px}
-  .all-arrow{display:block;font-size:52px;line-height:1;color:var(--cta);font-weight:900}
-  .all-app{display:flex;justify-content:center;width:100%}
-  .all-app .phone{width:min(100%,300px)}
-  .all-app .viewport{max-height:520px}
-  .all-sub,.all-chips{display:none}
-  .all-points{grid-template-columns:repeat(3,1fr);max-width:1000px}
+  .all-wrap{flex-direction:row;justify-content:center;gap:30px;max-width:760px}
+  .all-photo{width:auto;flex:none}
+  .all-photo img{height:540px;width:auto}
+  .all-arrow{display:block;font-size:46px;line-height:1;color:var(--cta);font-weight:900}
+  .all-app{display:block;flex:none}
+  .all-app .phone{width:280px}
+  .all-app .viewport{max-height:540px}
+  .all-chips{display:none}
+  .all-points{grid-template-columns:repeat(3,1fr);max-width:760px}
 }
 </style>
 </head>
@@ -320,7 +321,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
     </div>
 
     <div class="all-wrap">
-      <figure class="all-photo"><img loading="lazy" src="img/all-tackle.webp" width="740" height="1310" alt="開発者の釣り具の写真。ロッド、リール、ライン、ルアー、小物（ケースやタックルボックス）が並び、それぞれに番号の注釈が付いている"></figure>
+      <figure class="all-photo"><img loading="lazy" src="img/all-tackle.webp" width="640" height="1133" alt="開発者の釣り具の写真。ロッド、リール、ライン、ルアー、小物（ケースやタックルボックス）が並び、それぞれに番号の注釈が付いている"></figure>
       <div class="all-arrow" aria-hidden="true">▶</div>
       <div class="all-app"><div class="phone fade"><div class="viewport"><img loading="lazy" src="img/home-std-v290.webp" width="640" height="1229" alt="標準の表示のホーム画面。ルアー・小物、ライン、リール・ロッド、釣行の4つにまとめて登録できる"></div></div></div>
     </div>

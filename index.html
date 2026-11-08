@@ -272,7 +272,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.7);padding:48px 24px 32px}
 .v280-fig-hl figcaption b{color:var(--teal)}
 .v280-flowhead{margin:48px 0 14px;font-weight:800;font-size:17px;color:var(--navy)}
 .v280-flowhead span{font-size:13px;font-weight:700;color:var(--teal);margin-left:8px}
-.v280-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.v280-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .v280-step{background:#fff;border:1px solid var(--gl);border-radius:16px;padding:14px 16px}
 .v280-step.hl{border:2px solid var(--teal);background:var(--teal-p)}
 .v280-step .d{font-family:'Outfit',sans-serif;font-weight:700;font-size:12px;color:var(--teal)}
@@ -333,7 +333,18 @@ footer{background:var(--navy);color:rgba(255,255,255,.7);padding:48px 24px 32px}
 .v290-allchips{display:none;list-style:none;grid-template-columns:repeat(2,1fr);gap:8px;max-width:440px;margin:14px auto 0;padding:0}
 .v290-allchips li{background:#fff;border:1px solid var(--gl);border-radius:14px;padding:10px 8px;text-align:center;font-weight:800;font-size:14px;color:var(--navy)}
 .v290-allnote{text-align:center;font-size:13px;color:var(--gray);line-height:1.7;margin:16px auto 0;max-width:640px}
-@media(max-width:900px){.v290-all{display:block;max-width:440px}.v290-allphoto{text-align:center}.v290-allphoto img{width:min(86%,300px);height:auto;margin:0 auto}.v290-allarrow,.v290-allapp{display:none}.v290-allchips{display:grid}}
+/* v2.90 修正（2026-11-09）：スマホでも、写真 ▶ アプリ画面 を横に並べて見せる（以前はスマホでアプリ画面を隠していた） */
+@media(max-width:900px){.v290-all{gap:6px;max-width:440px}.v290-allphoto,.v290-allapp{flex:1 1 0;min-width:0}.v290-allphoto img{width:100%;height:auto}.v290-allapp img{width:100%;height:auto;border-radius:14px;border-width:2px}.v290-allarrow{font-size:22px}.v290-allchips{display:grid}}
+/* ---------- メディア掲載（2026-11-09 追加） ---------- */
+.media-sec{padding:72px 24px;background:var(--white);border-bottom:1px solid var(--gl)}
+.media-lead{font-size:14px;color:var(--gray);margin:-4px 0 18px}
+.media-list{list-style:none;display:grid;gap:12px;max-width:720px;padding:0;margin:0}
+.media-item{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;background:var(--off);border:1px solid var(--gl);border-left:4px solid var(--teal);border-radius:0 14px 14px 0;padding:16px 18px}
+.media-tag{background:var(--teal-p);color:var(--teal);font-size:11px;font-weight:700;padding:2px 10px;border-radius:12px}
+.media-date{font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;color:var(--teal)}
+.media-name{flex:1 1 260px;color:var(--navy);font-weight:700;font-size:15px;text-decoration:none;line-height:1.6}
+.media-name:hover{color:var(--teal)}
+.media-ext{display:block;font-size:11px;font-weight:500;color:var(--gray)}
 </style>
 </head>
 <body>
@@ -357,7 +368,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.7);padding:48px 24px 32px}
 <section class="hero" id="top">
   <div class="hero-inner">
     <div class="hero-content">
-      <div class="hero-badge">🎣 Android アプリ v2.90 公開中</div>
+      <div class="hero-badge">🎣 Android アプリ v2.91 公開中</div>
       <h1>「このルアー、何匹釣れた？」<br>「このリール、何巻いてた？」<br>を<em>ゼロ</em>にする。</h1>
       <p class="hero-sub">ルアー・ライン・リール・ロッド・小物を一括管理する、<br>釣り人のための本格デジタルタックルノート。</p>
       <ul class="hero-checks">
@@ -458,6 +469,8 @@ footer{background:var(--navy);color:rgba(255,255,255,.7);padding:48px 24px 32px}
         <li>ロッドAI読取は、写真の写り方やモデルによって、読み取れないことがあります。結果は、確かめてから登録してください。</li>
         <li>在庫が少なくなったときは、買い物リストに<b>入れるか聞きます</b>（自動では入りません）。</li>
         <li>無料で登録できる数：ライン・リール・ロッドは、<b>広告なしで3つまで</b>。4つ目からは、広告1回で1つずつ増え、最大10個。ルアーと小物は、合わせて広告なしで10個（広告1回で2個ずつ増えます）。PRO版は、上限がありません。</li>
+        <li>動画広告：無料版で見られる回数は、<b>1時間に5回・1日10回まで</b>です。</li>
+        <li>左右フリックでの画面の切り替えは、<b>初期設定でOFF</b>です。「⚙️ データ・設定」からONにできます。タブのボタンでは、これまでどおり切り替えられます。</li>
       </ul>
     </details>
   </div>
@@ -505,6 +518,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.7);padding:48px 24px 32px}
       <div class="v280-step"><div class="d">10/13</div><div class="v">v2.74</div><p>釣行記録の登録画面を見直し、「写真からまとめて登録」を追加</p></div>
       <div class="v280-step"><div class="d">10/22</div><div class="v">v2.80</div><p><b>シンプル表示</b>を追加。文字もボタンも、さらに大きく</p></div>
       <div class="v280-step hl"><div class="d">11/1</div><div class="v">v2.90</div><p><b>ロッド・小物・使用タックル</b>を追加。タックル全体を管理</p></div>
+      <div class="v280-step"><div class="d">11/8</div><div class="v">v2.91</div><p>左右フリックを初期OFFに。動画広告の回数を、1時間に5回・1日10回までに</p></div>
     </div>
   </div>
 </section>
@@ -879,6 +893,10 @@ footer{background:var(--navy);color:rgba(255,255,255,.7);padding:48px 24px 32px}
     </div>
     <div class="news-list fade-up">
       <div class="news-item">
+        <span class="news-date">2026.11.08</span>
+        <div><span class="news-tag news-tag-major">🆕 アップデート</span><span class="news-text"><strong>v2.91 リリース。</strong>【左右フリックでの画面の切り替えを、初期設定でOFFに】文字の入力中などに、画面が勝手に切り替わることがある問題への対策です。タブのボタンでは、これまでどおり切り替えられます。左右フリックを使いたい方は「⚙️ データ・設定」からONにできます。【動画広告の回数について】広告配信会社の規約に沿って運用するため、無料版で動画広告を見られる回数を、1時間に5回・1日10回までとしました。【そのほか】ホームの「データ」のボタンを「⚙️ データ・設定」に変更しました。公式サイトのアドレスを変更しました。</span></div>
+      </div>
+      <div class="news-item">
         <span class="news-date">2026.11.01</span>
         <div><span class="news-tag news-tag-major">🆕 メジャーアップデート</span><span class="news-text"><strong>v2.90 リリース。ルアーからロッドまで、タックルのすべてを1つのアプリに。</strong>タックル全体を管理できるようになりました。【ロッドの登録（新機能）】長さ・タイプ・適合ルアー／ラインを記録。型番の写真からロッドAI読取、「ネットで詳しく調べる」もできます。【小物の在庫管理（新機能）】スナップ・おもり・針などの在庫を −1／＋1 で管理。少なくなったら買い物リストへ。購入先のWebサイトも3つまで登録でき、一覧から開けます。【釣行に「使用タックル」を記録（新機能）】ロッド・リール・ライン・リーダーを残せます。よく使う組み合わせは「タックルセット」で一発。SNSの共有カードにも載せられます。【そのほか】広告で枠を増やして登録できる数を、ライン・リール・ロッドとも最大10個にしました（広告なしの無料は3つまで）。【修正】シンプル表示で、ライン・リールの行を選んでも操作ボタンが出ないことがある問題、使い方ガイドで画面を切り替えると暗いまま残ることがある問題を修正しました。</span></div>
       </div>
@@ -982,6 +1000,21 @@ footer{background:var(--navy);color:rgba(255,255,255,.7);padding:48px 24px 32px}
   </div>
 </section>
 
+<!-- ===== メディア掲載（掲載されたら、下の <li class="media-item"> を1つ足す） ===== -->
+<section class="media-sec" id="media">
+  <div class="sec-in">
+    <div class="fade-up">
+      <div class="lbl">Media</div>
+      <h2>メディア掲載</h2>
+    </div>
+    <p class="media-lead fade-up">v2.90 のプレスリリースの掲載先です。</p>
+    <ul class="media-list fade-up">
+      <li class="media-item"><span class="media-tag">プレスリリース</span><span class="media-date">2026.11</span><a class="media-name" href="https://www.prerele.com/releases/detail/54543" target="_blank" rel="noopener" data-goatcounter-click="media-prerele">ぷれりり｜v2.90 のプレスリリースが掲載されました<span class="media-ext">外部サイト（prerele.com）が別タブで開きます</span></a></li>
+      <!-- 次の掲載（ValuePress!・PRESSNOW など）は、掲載されてから、ここに <li class="media-item"> を足す。 -->
+    </ul>
+  </div>
+</section>
+
 <section class="partner-sec" id="partner">
   <div class="sec-in">
     <div class="fade-up">
@@ -1076,6 +1109,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.7);padding:48px 24px 32px}
         <a href="#screenshots">スクリーンショット</a>
         <a href="#flyer">チラシ・資料</a>
         <a href="#news">ニュース</a>
+        <a href="#media">メディア掲載</a>
         <a href="#partner">協力釣り船</a>
         <a href="https://www.youtube.com/playlist?list=PLoDcAZXFefPI02MxeyKSlOv0uCkWmlFZp" target="_blank" rel="noopener">YouTube</a>
         <a href="#contact">お問い合わせ</a>

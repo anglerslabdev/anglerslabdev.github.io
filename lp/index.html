@@ -229,16 +229,20 @@ footer small{display:block;line-height:1.7;opacity:.7}
   .more .hscroll{grid-template-columns:repeat(2,minmax(0,1fr));max-width:620px;margin-left:auto;margin-right:auto}
   #p4 .hscroll{grid-template-columns:repeat(4,minmax(0,1fr));max-width:920px;margin-left:auto;margin-right:auto}
   #p5 .hscroll{grid-template-columns:repeat(5,minmax(0,1fr));max-width:1040px;margin-left:auto;margin-right:auto;gap:18px}
-  .flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));max-width:1040px;overflow:visible}
+  .flow{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));max-width:1040px;overflow:visible}
   .fstep{min-width:0;padding:12px 14px}
   .fstep p{margin-top:4px}
 }
 @media(max-width:899px){.flow .fstep.hl:last-child{grid-column:1/-1}}
 /* ---------- ポイント1：全体像 ---------- */
-.all-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;max-width:440px;margin:28px auto 0}
-.all-photo{margin:0;width:min(86%,300px)}
+/* v2.90 修正（2026-11-09）：スマホでも、写真 ▶ アプリ画面 を横に並べて見せる（以前はスマホでアプリ画面を隠していた） */
+.all-wrap{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:6px;max-width:440px;margin:28px auto 0}
+.all-photo{margin:0;flex:1 1 0;min-width:0}
 .all-photo img{display:block;width:100%;height:auto;border-radius:18px;box-shadow:0 22px 44px -22px rgba(10,35,66,.55)}
-.all-arrow,.all-app{display:none}
+.all-arrow{display:block;flex:none;font-size:22px;line-height:1;color:var(--cta);font-weight:900}
+.all-app{display:block;flex:1 1 0;min-width:0}
+.all-app .phone{width:100%;padding:4px;border-radius:18px}
+.all-app .viewport{max-height:250px;border-radius:14px}
 .all-chips{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:8px;max-width:440px;margin:16px auto 0}
 .all-chips li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 8px;text-align:center;font-weight:900;font-size:14px;color:var(--navy)}
 .all-note{margin:14px auto 0;max-width:560px;text-align:center;font-size:13px;color:var(--gray);line-height:1.7}
@@ -250,11 +254,20 @@ footer small{display:block;line-height:1.7;opacity:.7}
   .all-photo img{height:540px;width:auto}
   .all-arrow{display:block;font-size:46px;line-height:1;color:var(--cta);font-weight:900}
   .all-app{display:block;flex:none}
-  .all-app .phone{width:280px}
-  .all-app .viewport{max-height:540px}
+  .all-app .phone{width:280px;padding:7px;border-radius:32px}
+  .all-app .viewport{max-height:540px;border-radius:25px}
   .all-chips{display:none}
   .all-points{grid-template-columns:repeat(3,1fr);max-width:760px}
 }
+/* ---------- メディア掲載（2026-11-09 追加） ---------- */
+.media-band{padding:44px 0;background:#fff;border-top:1px solid var(--line)}
+.media-h{font-size:clamp(20px,5vw,26px)}
+.media-lead{margin:8px auto 0;color:var(--gray);font-size:14px}
+.media-list{list-style:none;display:grid;gap:10px;max-width:520px;margin:18px auto 0;padding:0;text-align:left}
+.media-list li{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;background:var(--off);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.media-tag{background:#e3f7f3;color:var(--teal);font-weight:900;font-size:11px;border-radius:999px;padding:2px 10px}
+.media-list a{flex:1 1 220px;display:flex;justify-content:space-between;gap:10px;color:var(--navy);font-weight:900;font-size:14.5px;text-decoration:none;line-height:1.5}
+.media-go{color:var(--cta);white-space:nowrap}
 </style>
 </head>
 <body>
@@ -291,7 +304,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5z"/></svg>
           Google Play で無料ダウンロード
         </a>
-        <p class="cta-note">Android 7.0 以上｜基本機能は無料（PRO版あり）<br>最新版：v2.90（2026年11月1日公開）</p>
+        <p class="cta-note">Android 7.0 以上｜基本機能は無料（PRO版あり）<br>最新版：v2.91（2026年11月8日公開）</p>
         <p class="pc-note">📱 スマホ（Android）でこのページを開くと、そのままインストールできます</p>
         <div class="survey">
           <b>📱 iPhone版を検討しています</b>
@@ -468,6 +481,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
       <div class="fstep"><div class="d">10/13<b>v2.74</b></div><p>写真からまとめて登録</p></div>
       <div class="fstep"><div class="d">10/22<b>v2.80</b></div><p>シンプル表示</p></div>
       <div class="fstep hl"><div class="d">11/1<b>v2.90</b></div><p><b>ロッド・小物・使用タックル</b></p></div>
+      <div class="fstep"><div class="d">11/8<b>v2.91</b></div><p>フリック初期OFF・動画広告の回数</p></div>
     </div>
     <div class="cta-row"><a class="play-cta sm" data-play data-goatcounter-click="lp-dl-p5" href="https://play.google.com/store/apps/details?id=com.anglerslab.linemanager&amp;referrer=utm_source%3Dofficial_site%26utm_medium%3Dweb%26utm_campaign%3Dlp" target="_blank" rel="noopener">▶ 無料で試してみる</a></div>
   </div>
@@ -507,6 +521,8 @@ footer small{display:block;line-height:1.7;opacity:.7}
         <li>ロッドAI読取は、写真の写り方やモデルによって、読み取れないことがあります。結果は、確かめてから登録してください。</li>
         <li>小物の在庫が少なくなったときは、買い物リストに<b>入れるか聞きます</b>（自動では入りません）。</li>
         <li>無料で登録できる数：ライン・リール・ロッドは、<b>広告なしで3つまで</b>。4つ目からは、広告1回で1つずつ増え、最大10個。ルアーと小物は、合わせて広告なしで10個（広告1回で2個ずつ増えます）。PRO版は、上限がありません。</li>
+        <li>動画広告：無料版で見られる回数は、<b>1時間に5回・1日10回まで</b>です。</li>
+        <li>左右フリックでの画面の切り替えは、<b>初期設定でOFF</b>です。「⚙️ データ・設定」からONにできます。タブのボタンでは、これまでどおり切り替えられます。</li>
         <li>「写真からまとめて登録」：1つの釣行に入れられる写真は<b>最大15枚</b>です。超えた分の釣果は、写真なしで登録されます。</li>
         <li>同じ1匹としてまとめた写真は、<b>最初の1枚だけ</b>を取り込みます。</li>
         <li>撮影時刻が残っていない写真（LINEで送られた写真など）は、時刻なしで登録されます。撮影時刻の表示は、v2.74 以降に取り込んだ写真から行われます。</li>
@@ -516,6 +532,19 @@ footer small{display:block;line-height:1.7;opacity:.7}
         <li>ラインの使用回数やリールのメンテ履歴は、記録して目安にするためのものです（自動の通知はありません）。</li>
       </ul>
     </details>
+  </div>
+</section>
+
+<!-- ================= メディア掲載（掲載されたら、下の <li> を1つ足す） ================= -->
+<section class="media-band" id="media">
+  <div class="wrap center">
+    <span class="eyebrow">MEDIA</span>
+    <h2 class="media-h">メディア掲載</h2>
+    <p class="media-lead">v2.90 のプレスリリースの掲載先です。</p>
+    <ul class="media-list">
+      <li><span class="media-tag">プレスリリース</span><a href="https://www.prerele.com/releases/detail/54543" target="_blank" rel="noopener" data-goatcounter-click="lp-media-prerele">ぷれりり｜v2.90 のプレスリリース<span class="media-go">見る ›</span></a></li>
+      <!-- 次の掲載（ValuePress!・PRESSNOW など）は、掲載されてから、ここに <li> を足す。例：<li><span class="media-tag">プレスリリース</span><a href="（掲載ページのURL）" target="_blank" rel="noopener" data-goatcounter-click="lp-media-（名前）">（媒体名）｜v2.90 のプレスリリース<span class="media-go">見る ›</span></a></li> -->
+    </ul>
   </div>
 </section>
 

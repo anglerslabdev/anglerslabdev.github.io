@@ -116,7 +116,7 @@ h2{font-size:clamp(24px,6.2vw,36px);line-height:1.35;font-weight:900;color:var(-
 .ba .photo img{display:block;width:100%}
 .ba .arrow{font-size:26px;color:var(--teal);font-weight:900}
 .ba .phone{width:100%}
-.ba .phone .viewport{max-height:330px}
+.ba .phone .viewport{max-height:400px} /* 2026-11-09：ルアー一覧を多く見せるため 330→400 */
 .benefits{display:grid;gap:12px;margin-top:30px}
 .benefit{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:18px;padding:15px 16px}
 .benefit .ic{flex:none;width:44px;height:44px;border-radius:13px;background:#e3f7f3;display:grid;place-items:center;font-size:22px}
@@ -193,6 +193,23 @@ footer small{display:block;line-height:1.7;opacity:.7}
 .sticky span small{display:block;font-weight:400;opacity:.75;font-size:11.5px}
 .sticky .play-cta{padding:11px 20px;font-size:14.5px;box-shadow:none}
 
+/* ---------- スマホの最初の画面（2026-11-09：案A）：アプリ画面 → ボタン → 困りごと の順に ---------- */
+.hero-pair,.qs-label{display:none}
+@media(max-width:899px){
+  .hero{padding-top:84px}
+  .hero-text{display:flex;flex-direction:column;align-items:flex-start}
+  .hero-text .badge{display:none}
+  .hero h1{margin-top:6px}
+  .hero-pair{display:block;align-self:center;width:min(86%,320px);margin:12px 0 -22px}
+  .hero-pair img{display:block;width:100%;height:auto;-webkit-mask-image:linear-gradient(#000 80%,transparent);mask-image:linear-gradient(#000 80%,transparent)}
+  .hero-text .cta-box{order:5;align-self:stretch;margin-top:0}
+  .hero-text .cta-box .play-cta{display:flex;width:100%}
+  .hero-text .cta-note{text-align:center}
+  .qs-label{display:block;order:6;align-self:center;margin-top:26px;color:var(--mint);font-weight:700;font-size:14px}
+  .hero-text .qs{order:7;align-self:stretch;width:100%;margin-top:12px}
+  .hero-vis{display:none}
+  .hero .wrap{padding-bottom:44px}
+}
 /* ---------- PC ---------- */
 @media(min-width:900px){
   .hero{padding-top:100px}
@@ -288,8 +305,15 @@ footer small{display:block;line-height:1.7;opacity:.7}
     <div class="hero-text">
       <span class="badge">🎣 Androidアプリ｜基本無料</span>
       <h1><span class="ln">釣りの</span><span class="ln">「あれ、どうだっけ？」</span><span class="ln">を、<em>ゼロ</em>に。</span></h1>
-      <p class="sub">釣り人の困りごと解決に特化した、ルアー・ライン・リール・ロッド・小物・釣果の管理アプリです。</p>
+      <p class="sub">ルアー・ライン・リール・ロッド・小物・釣果を、1つのアプリで管理できます。</p>
 
+      <!-- スマホの最初の画面：アプリ画面2台（2026-11-09 案A。パソコン幅では表示しない） -->
+      <picture class="hero-pair">
+        <source media="(max-width:899px)" srcset="img/hero-phones-v291.webp">
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="640" height="600" fetchpriority="high" decoding="async" alt="デジタルタックルノートのホーム画面と、ルアー一覧の画面">
+      </picture>
+
+      <p class="qs-label">▼ こんな困りごとを解決します</p>
       <div class="qs">
         <a class="q" href="#p0" data-goatcounter-click="lp-nav-p0"><span class="n">1</span><span class="t">「タックルが多すぎて、何がどこにあるか分からない…」</span><span class="go">解決 ›</span></a>
         <a class="q" href="#p1" data-goatcounter-click="lp-nav-p1"><span class="n">2</span><span class="t">「このルアー、何匹釣れた？」</span><span class="go">解決 ›</span></a>
@@ -315,7 +339,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
       </div>
     </div>
     <div class="hero-vis">
-      <div class="phone"><div class="viewport"><img src="img/home-std-v290.webp" width="640" height="1229" alt="標準の表示のホーム画面。上のボタンで、シンプル表示に切り替えられる。ルアー・小物、ライン、リール・ロッド、釣行の4つの管理と、今年の釣行数・釣果数が表示されている"></div></div>
+      <div class="phone"><div class="viewport"><picture><source media="(min-width:900px)" srcset="img/home-std-v290.webp"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="640" height="1229" alt="標準の表示のホーム画面。上のボタンで、シンプル表示に切り替えられる。ルアー・小物、ライン、リール・ロッド、釣行の4つの管理と、今年の釣行数・釣果数が表示されている"></picture></div></div>
       <div class="chip c1">ルアー・ライン・リール・<br>ロッド・小物を、1つに</div>
       <div class="chip c2">カメラAI読取で<br>登録がラク</div>
       <div class="chip c3">ボタンひとつで<br>シンプル表示へ</div>
@@ -336,7 +360,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
     <div class="all-wrap">
       <figure class="all-photo"><img loading="lazy" src="img/all-tackle.webp" width="640" height="1133" alt="開発者の釣り具の写真。ロッド、リール、ライン、ルアー、小物（ケースやタックルボックス）が並び、それぞれに番号の注釈が付いている"></figure>
       <div class="all-arrow" aria-hidden="true">▶</div>
-      <div class="all-app"><div class="phone fade"><div class="viewport"><img loading="lazy" src="img/home-std-v290.webp" width="640" height="1229" alt="標準の表示のホーム画面。ルアー・小物、ライン、リール・ロッド、釣行の4つにまとめて登録できる"></div></div></div>
+      <div class="all-app"><div class="phone fade"><div class="viewport"><img loading="lazy" src="img/all-app-v291.webp" width="640" height="1276" alt="ルアーと小物の一覧画面。たくさんの道具が写真つきで並び、小物は在庫の個数と、−1使用・＋1補充などのボタンで管理できる"></div></div></div>
     </div>
     <ul class="all-chips"><li>🪝 ルアー・小物</li><li>🧵 ライン</li><li>⚙️ リール・ロッド</li><li>🎣 釣行</li></ul>
     <p class="all-note">小物は、種類を自分で追加できます。タックルボックスなどの道具も、登録できます。</p>
@@ -362,7 +386,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
     <div class="ba">
       <figure><div class="photo"><img loading="lazy" src="img/pack.webp" width="480" height="680" alt="ルアーのパッケージがたくさん山積みになっている写真"></div><figcaption class="cap">Before<br>パッケージの山</figcaption></figure>
       <div class="arrow" aria-hidden="true">→</div>
-      <figure><div class="phone fade"><div class="viewport"><img loading="lazy" src="img/lure.webp" width="640" height="1050" alt="ルアー一覧。写真つきでヒット数と称号が並んでいる"></div></div><figcaption class="cap">After<br>スマホにすっきり</figcaption></figure>
+      <figure><div class="phone fade"><div class="viewport"><img loading="lazy" src="img/lure-list-v291.webp" width="640" height="1359" alt="ルアー一覧。ワーム・ティップラン・タイラバ・ジグ・エギなど、種類ごとに写真つきでヒット数と称号が並んでいる。上のタブで、ルアーと小物を切り替えられる"></div></div><figcaption class="cap">After<br>スマホにすっきり</figcaption></figure>
     </div>
 
     <div class="benefits">

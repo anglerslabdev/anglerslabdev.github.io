@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ルアー・ライン・リール・ロッド・小物・釣果を一元管理｜デジタルタックルノート（Androidアプリ）</title>
-<meta name="description" content="「このルアー、何匹釣れた？」「このリール、何巻いてた？」をゼロに。パッケージを撮るだけのAI登録、ヒットランキング、ライン×リールの紐付け管理、釣り中は撮るだけの「まとめて登録」。ロッド・小物の管理と、釣行ごとの使用タックルの記録も。文字とボタンを大きくできるシンプル表示も。釣り人の困りごとを解決するAndroidアプリ（基本無料）。">
+<meta name="description" content="「このルアー、何匹釣れた？」「このリール、何巻いてた？」をゼロに。パッケージを撮るだけのAI登録、ヒットランキング、ライン×リールの紐付け管理、釣り中は撮るだけの「まとめて登録」。ロッド・小物の管理と、釣行ごとの使用タックルの記録も。登録した釣り具を、ネットショップやGoogle・YouTubeでワンタップで調べられます。文字とボタンを大きくできるシンプル表示も。釣り人の困りごとを解決するAndroidアプリ（基本無料）。">
 <link rel="canonical" href="https://anglers-lab.net/lp/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="デジタルタックルノート by Angler's Lab">
 <meta property="og:title" content="釣りの「あれ、どうだっけ？」を、ゼロに。｜デジタルタックルノート">
-<meta property="og:description" content="釣り人の困りごと解決に特化した、ルアー・ライン・リール・ロッド・小物・釣果の管理アプリ（Android・基本無料）。パッケージを撮るだけで登録、釣行ごとの使用タックルも記録。文字とボタンを大きくできるシンプル表示も選べます。">
+<meta property="og:description" content="釣り人の困りごと解決に特化した、ルアー・ライン・リール・ロッド・小物・釣果の管理アプリ（Android・基本無料）。パッケージを撮るだけで登録、登録した釣り具をワンタップで調べる、釣行ごとの使用タックルも記録。文字とボタンを大きくできるシンプル表示も選べます。">
 <meta property="og:url" content="https://anglers-lab.net/lp/">
 <meta property="og:image" content="https://anglers-lab.net/lp/img/ogp.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -245,8 +245,8 @@ footer small{display:block;line-height:1.7;opacity:.7}
 @media(min-width:900px){
   .more .hscroll{grid-template-columns:repeat(2,minmax(0,1fr));max-width:620px;margin-left:auto;margin-right:auto}
   #p4 .hscroll{grid-template-columns:repeat(4,minmax(0,1fr));max-width:920px;margin-left:auto;margin-right:auto}
-  #p5 .hscroll{grid-template-columns:repeat(5,minmax(0,1fr));max-width:1040px;margin-left:auto;margin-right:auto;gap:18px}
-  .flow{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));max-width:1040px;overflow:visible}
+  #p5 .hscroll,#p6 .hscroll{grid-template-columns:repeat(5,minmax(0,1fr));max-width:1040px;margin-left:auto;margin-right:auto;gap:18px}
+  .flow{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));max-width:1040px;overflow:visible}
   .fstep{min-width:0;padding:12px 14px}
   .fstep p{margin-top:4px}
 }
@@ -285,6 +285,18 @@ footer small{display:block;line-height:1.7;opacity:.7}
 .media-tag{background:#e3f7f3;color:var(--teal);font-weight:900;font-size:11px;border-radius:999px;padding:2px 10px}
 .media-list a{flex:1 1 220px;display:flex;justify-content:space-between;gap:10px;color:var(--navy);font-weight:900;font-size:14.5px;text-decoration:none;line-height:1.5}
 .media-go{color:var(--cta);white-space:nowrap}
+/* ---------- v3.00：スマホの長さを増やさないための調整（2026-11-24。パソコン幅は変えない） ---------- */
+@media(max-width:899px){
+  .sec{padding:46px 0}
+  .hs .phone .viewport{max-height:380px}
+  .hscroll{padding-bottom:10px}
+  .flowhead,.flow,.all-note{display:none}
+  .more .phone .viewport{max-height:350px}
+  .benefit{padding:12px 14px}
+  .benefit p{font-size:13.5px;line-height:1.6}
+  .cta-row{margin-top:26px}
+  .qa-list{margin-top:22px;gap:10px}
+}
 </style>
 </head>
 <body>
@@ -318,9 +330,10 @@ footer small{display:block;line-height:1.7;opacity:.7}
         <a class="q" href="#p0" data-goatcounter-click="lp-nav-p0"><span class="n">1</span><span class="t">「タックルが多すぎて、何がどこにあるか分からない…」</span><span class="go">解決 ›</span></a>
         <a class="q" href="#p1" data-goatcounter-click="lp-nav-p1"><span class="n">2</span><span class="t">「このルアー、何匹釣れた？」</span><span class="go">解決 ›</span></a>
         <a class="q" href="#p2" data-goatcounter-click="lp-nav-p2"><span class="n">3</span><span class="t">「どのリールに、どのライン巻いた？ メンテはいつ？」</span><span class="go">解決 ›</span></a>
-        <a class="q" href="#p3" data-goatcounter-click="lp-nav-p3"><span class="n">4</span><span class="t">「釣り中は、登録している時間がない…」</span><span class="go">解決 ›</span></a>
-        <a class="q" href="#p4" data-goatcounter-click="lp-nav-p4"><span class="n">5</span><span class="t">「文字が小さくて、ボタンが押しにくい…」</span><span class="go">解決 ›</span></a>
-        <a class="q" href="#p5" data-goatcounter-click="lp-nav-p5"><span class="n">6</span><span class="t">「あの日釣れたのは、どのタックルだった？」</span><span class="go">解決 ›</span></a>
+        <a class="q" href="#p6" data-goatcounter-click="lp-nav-p6"><span class="n">4</span><span class="t">「このルアー、重さは？<br>どこが安い？」</span><span class="go">解決 ›</span></a>
+        <a class="q" href="#p3" data-goatcounter-click="lp-nav-p3"><span class="n">5</span><span class="t">「釣り中は、登録している時間がない…」</span><span class="go">解決 ›</span></a>
+        <a class="q" href="#p4" data-goatcounter-click="lp-nav-p4"><span class="n">6</span><span class="t">「文字が小さくて、ボタンが押しにくい…」</span><span class="go">解決 ›</span></a>
+        <a class="q" href="#p5" data-goatcounter-click="lp-nav-p5"><span class="n">7</span><span class="t">「あの日釣れたのは、どのタックルだった？」</span><span class="go">解決 ›</span></a>
       </div>
 
       <div class="cta-box" id="hero-cta">
@@ -328,7 +341,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5z"/></svg>
           Google Play で無料ダウンロード
         </a>
-        <p class="cta-note">Android 7.0 以上｜基本機能は無料（PRO版あり）<br>最新版：v2.91（2026年11月8日公開）</p>
+        <p class="cta-note">Android 7.0 以上｜基本機能は無料（PRO版あり）<br>最新版：v3.00（2026年11月23日公開）</p>
         <p class="pc-note">📱 スマホ（Android）でこのページを開くと、そのままインストールできます</p>
         <div class="survey">
           <b>📱 iPhone版を検討しています</b>
@@ -390,10 +403,9 @@ footer small{display:block;line-height:1.7;opacity:.7}
     </div>
 
     <div class="benefits">
-      <div class="benefit"><div class="ic">📷</div><div><h3>AI読取で、登録がかんたん</h3><p>パッケージを撮るだけで、<b>品名・メーカー・サイズ・カラー</b>をAIが自動入力。結果は確認・修正してから登録できます。</p></div></div>
-      <div class="benefit"><div class="ic">📦</div><div><h3>登録したら、パッケージは捨てられる</h3><p>写真を残しておけば、<b>かさばるパッケージは迷わず手放せます</b>。</p></div></div>
-      <div class="benefit"><div class="ic">🏆</div><div><h3>ヒットランキングを自動生成</h3><p>釣果に使ったルアーを選ぶだけで、ヒット数を自動集計。<b>一軍ルアーがひと目</b>でわかり、<b>🤝相棒・⚔️エース・👑伝説</b>の称号もつきます。</p></div></div>
-      <div class="benefit"><div class="ic">💀</div><div><h3>ロストしても、もう一度買える</h3><p>「メチャ釣れたルアーをロストしたのに、型番を覚えていない！」でも、ロスト履歴が記録に残り、<b>買い物リストにそのまま追加</b>できます。登録から再購入まで、一連の流れに対応しています。</p></div></div>
+      <div class="benefit"><div class="ic">📷</div><div><h3>AI読取で、登録がかんたん</h3><p>パッケージを撮るだけで、<b>品名・メーカー・サイズ・カラー</b>をAIが自動入力（結果は確認・修正できます）。写真を残せば、<b>かさばるパッケージは手放せます</b>。</p></div></div>
+      <div class="benefit"><div class="ic">🏆</div><div><h3>ヒットランキングを自動生成</h3><p>ルアーを選ぶだけで、ヒット数を自動集計。<b>一軍ルアーがひと目</b>で、<b>🤝相棒・⚔️エース・👑伝説</b>の称号もつきます。</p></div></div>
+      <div class="benefit"><div class="ic">💀</div><div><h3>ロストしても、もう一度買える</h3><p>型番を覚えていなくても、ロスト履歴が記録に残り、<b>買い物リストにそのまま追加</b>できます。</p></div></div>
     </div>
 
     <div class="cta-row"><a class="play-cta sm" data-play data-goatcounter-click="lp-dl-p1" href="https://play.google.com/store/apps/details?id=com.anglerslab.linemanager&amp;referrer=utm_source%3Dofficial_site%26utm_medium%3Dweb%26utm_campaign%3Dlp" target="_blank" rel="noopener">▶ 無料で試してみる</a></div>
@@ -414,22 +426,51 @@ footer small{display:block;line-height:1.7;opacity:.7}
     </div>
 
     <div class="qa-list">
-      <div class="qa"><p class="qq">どのリール（スプール）に、どのラインを巻いたっけ？</p><p class="aa"><b>ライン×リールを紐付けて管理。</b>スプール単位の管理にも対応し、保有一覧でひと目で確認できます。</p></div>
-      <div class="qa"><p class="qq">このライン、何回使った？ リールのメンテ、いつした？</p><p class="aa">ラインの<b>使用回数・購入日</b>、リールの<b>オーバーホール・カスタム履歴</b>を記録。交換やメンテの目安にできます。</p></div>
+      <div class="qa"><p class="qq">どのリール（スプール）に、どのラインを巻いたっけ？</p><p class="aa"><b>ライン×リールを紐付けて管理。</b>保有一覧でひと目で確認できます。</p></div>
+      <div class="qa"><p class="qq">このライン、何回使った？ リールのメンテ、いつした？</p><p class="aa">ラインの<b>使用回数・購入日</b>、リールの<b>オーバーホール・カスタム履歴</b>を記録して、交換やメンテの目安にできます。</p></div>
       <div class="qa"><p class="qq">このリール、ラインは何m巻ける？</p><p class="aa">登録したスペックから、<b>推定糸巻き量を自動計算</b>します。</p></div>
-      <div class="qa"><p class="qq">ライン交換の手順、毎回迷う…</p><p class="aa"><b>ナビ機能</b>が、ラインの取り外し・移動・装着をガイド。画面に従うだけで完了します。</p></div>
+      <div class="qa"><p class="qq">ライン交換の手順、毎回迷う…</p><p class="aa"><b>ナビ機能</b>が、取り外し・移動・装着をガイドします。</p></div>
     </div>
     <div class="cta-row"><a class="play-cta sm" data-play data-goatcounter-click="lp-dl-p2" href="https://play.google.com/store/apps/details?id=com.anglerslab.linemanager&amp;referrer=utm_source%3Dofficial_site%26utm_medium%3Dweb%26utm_campaign%3Dlp" target="_blank" rel="noopener">▶ 無料で試してみる</a></div>
   </div>
 </section>
 
-<!-- ================= ポイント3：まとめて登録 ================= -->
-<section class="sec" id="p3">
+<!-- ================= ポイント4：調べる（v3.00 新機能）。内部id=p6／計測名 lp-nav-p6・lp-dl-p6・lp-view-p6 ================= -->
+<section class="sec" id="p6">
   <div class="wrap">
     <div class="center">
-      <span class="eyebrow">POINT 4 ｜ まとめて登録</span>
+      <span class="eyebrow">POINT 4 ｜ v3.00 新機能<i>NEW</i></span>
+      <h2>登録した名前から、<br>ワンタップで調べる。</h2>
+      <p class="lead"><span style="display:inline-block">ルアー・小物・ライン・</span><span style="display:inline-block">リール・ロッドに対応</span></p>
+    </div>
+
+    <div class="hscroll">
+      <div class="hs hlc"><span class="tag"><span class="pill-step">ルアー</span></span><div class="phone"><div class="viewport"><img loading="lazy" src="img/search-lure-v300.webp" width="640" height="975" alt="調べる画面。登録したルアーの名前が検索する言葉に入り、「最安値」「使い方」「ラインナップ」「重さ」などのキーワードと、Googleショッピング・Amazon・楽天市場・Yahoo!ショッピング・ナチュラム・Google・YouTubeのボタンが並ぶ"></div></div><p class="cap"><b>登録した名前が入る</b><br>キーワードを選ぶだけ</p></div>
+      <div class="hs"><span class="tag"><span class="pill-step std">検索結果の例</span></span><div class="phone"><div class="viewport"><img loading="lazy" src="img/search-result-v300.webp" width="640" height="1227" alt="Googleショッピングで開いた検索結果の例。ネットショップごとの価格が並ぶ"></div></div><p class="cap"><b>お店を選ぶと</b><br>検索結果が開く</p></div>
+      <div class="hs"><span class="tag"><span class="pill-step std">リール</span></span><div class="phone"><div class="viewport"><img loading="lazy" src="img/search-reel-v300.webp" width="640" height="1098" alt="リールの調べる画面。「スペック」「メンテ」「替えスプール」「糸巻き量」「パーツ」「オーバーホール」などのキーワードが並ぶ"></div></div><p class="cap"><b>釣り具に合わせた</b><br>キーワード</p></div>
+      <div class="hs"><span class="tag"><span class="pill-step std">お店の設定</span></span><div class="phone"><div class="viewport"><img loading="lazy" src="img/search-shops-v300.webp" width="640" height="1148" alt="調べるのお店の設定画面。並べ替えと、ON・OFFの切り替え、お店の追加ができる"></div></div><p class="cap"><b>お店を選べる</b><br>ON/OFF・並べ替え・追加</p></div>
+      <div class="hs"><span class="tag"><span class="pill-step std">キーワードの設定</span></span><div class="phone"><div class="viewport"><img loading="lazy" src="img/search-keywords-v300.webp" width="640" height="1144" alt="調べるのキーワードの設定画面。ルアー・小物・買い物リスト・ライン・リール・ロッドごとに、追加・削除・並べ替えができる"></div></div><p class="cap"><b>キーワードも自由に</b><br>種類ごとに追加・削除</p></div>
+    </div>
+    <p class="hint">← 横にスワイプ →</p>
+
+    <div class="benefits">
+      <div class="benefit"><div class="ic">🔍</div><div><h3>型番を、打ち直さなくていい</h3><p>登録した<b>品名が、検索する言葉に入ります</b>。買い物リストの品も調べられます。</p></div></div>
+      <div class="benefit"><div class="ic">📖</div><div><h3>使い方・糸巻き量・適合ルアーも</h3><p>キーワードを選んで、<b>Google・YouTube</b>で調べられます。</p></div></div>
+      <div class="benefit"><div class="ic">🛒</div><div><h3>価格を、ネットですぐ調べる</h3><p><b>Amazon・楽天市場・Yahoo!ショッピング</b>などの検索結果が開きます。「最安値」を選ぶと、<b>安い順</b>で開きます。</p></div></div>
+      <div class="benefit"><div class="ic">⚙️</div><div><h3>お店もキーワードも、自分好みに</h3><p><b>AIは使わない</b>ので、回数の制限はありません。</p></div></div>
+    </div>
+    <p class="hint">※各サイトの検索結果を開く機能です。価格・在庫は、各サイトでご確認ください。</p>
+    <div class="cta-row"><a class="play-cta sm" data-play data-goatcounter-click="lp-dl-p6" href="https://play.google.com/store/apps/details?id=com.anglerslab.linemanager&amp;referrer=utm_source%3Dofficial_site%26utm_medium%3Dweb%26utm_campaign%3Dlp" target="_blank" rel="noopener">▶ 無料で試してみる</a></div>
+  </div>
+</section>
+
+<!-- ================= ポイント3：まとめて登録 ================= -->
+<section class="sec alt" id="p3">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">POINT 5 ｜ まとめて登録</span>
       <h2>釣っている間は、撮るだけ。<br>登録は、あとでまとめて。</h2>
-      <p class="lead">釣りの最中は、アプリに登録している時間なんてありません。写真を撮っておけば、帰ってから撮影時刻ごとに釣果をまとめて登録できます。</p>
+      <p class="lead">写真を撮っておけば、帰ってから、撮影時刻ごとに釣果をまとめて登録できます。</p>
     </div>
 
     <div class="hscroll">
@@ -449,12 +490,12 @@ footer small{display:block;line-height:1.7;opacity:.7}
 </section>
 
 <!-- ================= ポイント4：シンプル表示 ================= -->
-<section class="sec alt" id="p4">
+<section class="sec" id="p4">
   <div class="wrap">
     <div class="center">
-      <span class="eyebrow">POINT 5 ｜ 見やすさ</span>
+      <span class="eyebrow">POINT 6 ｜ 見やすさ</span>
       <h2>文字もボタンも、<br>大きく選べる。</h2>
-      <p class="lead">老眼の方、文字を大きくしたい方、操作をシンプルにしたい方へ。ホームの情報をしぼった「シンプル表示」を追加しました。</p>
+      <p class="lead">文字を大きくしたい方、操作をシンプルにしたい方へ。「シンプル表示」があります。</p>
     </div>
 
     <div class="hscroll">
@@ -466,8 +507,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
     <p class="hint">← 横にスワイプ →</p>
 
     <div class="benefits">
-      <div class="benefit"><div class="ic">👆</div><div><h3>大きなボタンで、すぐ操作</h3><p>ホームで「ルアー・ライン・リール・釣行記録」を選ぶと、下に一覧が出ます。<b>「AIで読み取る」「登録する」「マイレコード・釣果分析」</b>の大きなボタンで、すぐ操作できます。</p></div></div>
-      <div class="benefit"><div class="ic">🔀</div><div><h3>いつでも標準の表示と切り替え</h3><p>画面の上のボタン（「🔍 シンプル」「📱 標準へ」）で、いつでも切り替えられます。初回起動・アップデートのときに、選べます。</p></div></div>
+      <div class="benefit"><div class="ic">👆</div><div><h3>大きなボタンで、すぐ操作</h3><p>ホームで「ルアー・ライン・リール・釣行記録」を選ぶと一覧が出て、<b>「AIで読み取る」「登録する」</b>などの大きなボタンで操作できます。<b>いつでも標準の表示と切り替え</b>られます。</p></div></div>
     </div>
 
     <div class="cta-row"><a class="play-cta sm" data-play data-goatcounter-click="lp-dl-p4" href="https://play.google.com/store/apps/details?id=com.anglerslab.linemanager&amp;referrer=utm_source%3Dofficial_site%26utm_medium%3Dweb%26utm_campaign%3Dlp" target="_blank" rel="noopener">▶ 無料で試してみる</a></div>
@@ -475,12 +515,12 @@ footer small{display:block;line-height:1.7;opacity:.7}
 </section>
 
 <!-- ================= ポイント5：タックル全体 ================= -->
-<section class="sec" id="p5">
+<section class="sec alt" id="p5">
   <div class="wrap">
     <div class="center">
-      <span class="eyebrow">POINT 6 ｜ 新機能<i>NEW</i></span>
+      <span class="eyebrow">POINT 7 ｜ ロッド・小物・使用タックル</span>
       <h2>ロッドも、小物も、<br>使用タックルも。</h2>
-      <p class="lead"><b>あの日釣れたのは、どのタックルだった？</b> ルアー・ライン・リールに、ロッドと小物が加わり、釣行ごとに使ったタックルも残せるようになりました。</p>
+      <p class="lead"><b>あの日釣れたのは、どのタックルだった？</b> 釣行ごとに、使ったタックルも残せます。</p>
     </div>
 
     <div class="hscroll">
@@ -493,8 +533,8 @@ footer small{display:block;line-height:1.7;opacity:.7}
     <p class="hint">← 横にスワイプ →</p>
 
     <div class="benefits">
-      <div class="benefit"><div class="ic">🎒</div><div><h3>使用タックルを、釣行ごとに記録</h3><p>ロッド・リール・ライン・リーダーを残せます。リールを選ぶと、<b>巻いているラインとリーダーが自動で入ります</b>。よく使う組み合わせは<b>「タックルセット」</b>で、選ぶだけ。</p></div></div>
-      <div class="benefit"><div class="ic">🎣</div><div><h3>ロッドも、写真で登録</h3><p>長さ・タイプ・用途・適合ルアー／ラインを記録。型番の写真から<b>「ロッドAI読取」</b>。<b>「🔍 ネットで詳しく調べる」</b>で、正式な情報も探せます。</p></div></div>
+      <div class="benefit"><div class="ic">🎒</div><div><h3>使用タックルを、釣行ごとに記録</h3><p>リールを選ぶと、<b>巻いているラインとリーダーが自動で入ります</b>。よく使う組み合わせは<b>「タックルセット」</b>で。</p></div></div>
+      <div class="benefit"><div class="ic">🎣</div><div><h3>ロッドも、写真で登録</h3><p>長さ・タイプ・用途・適合ルアー／ラインを記録。型番の写真から<b>「ロッドAI読取」</b>。</p></div></div>
       <div class="benefit"><div class="ic">🧷</div><div><h3>小物の在庫を、−1／＋1で</h3><p>在庫を −1／＋1 で管理。少なくなったら、<b>買い物リストに入れるか聞きます</b>。購入先のWebサイトも、3つまで登録できます。</p></div></div>
     </div>
 
@@ -506,13 +546,14 @@ footer small{display:block;line-height:1.7;opacity:.7}
       <div class="fstep"><div class="d">10/22<b>v2.80</b></div><p>シンプル表示</p></div>
       <div class="fstep hl"><div class="d">11/1<b>v2.90</b></div><p><b>ロッド・小物・使用タックル</b></p></div>
       <div class="fstep"><div class="d">11/8<b>v2.91</b></div><p>フリック初期OFF・動画広告の回数</p></div>
+      <div class="fstep hl"><div class="d">11/23<b>v3.00</b></div><p><b>🔍 調べる</b>（価格・スペック・使い方）</p></div>
     </div>
     <div class="cta-row"><a class="play-cta sm" data-play data-goatcounter-click="lp-dl-p5" href="https://play.google.com/store/apps/details?id=com.anglerslab.linemanager&amp;referrer=utm_source%3Dofficial_site%26utm_medium%3Dweb%26utm_campaign%3Dlp" target="_blank" rel="noopener">▶ 無料で試してみる</a></div>
   </div>
 </section>
 
 <!-- ================= ほかにも ================= -->
-<section class="sec alt more" id="more">
+<section class="sec more" id="more">
   <div class="wrap">
     <div class="center">
       <span class="eyebrow">MORE</span>
@@ -527,7 +568,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
 </section>
 
 <!-- ================= 料金・注意 ================= -->
-<section class="sec" id="notes">
+<section class="sec alt" id="notes">
   <div class="wrap">
     <div class="price">
       <span class="eyebrow">PRICE</span>
@@ -541,7 +582,10 @@ footer small{display:block;line-height:1.7;opacity:.7}
         <li>使用タックルは、<b>釣行ごと</b>の記録です（1匹ごとではありません）。1回の釣行に、複数のタックルを残せます。</li>
         <li>タックルセットに保存されるのは、<b>ロッドとリール</b>です。ラインとリーダーは、選んだときにリールに巻いているものが入ります。</li>
         <li>ロッドは、使用回数を数えません。使用タックルを記録すると、<b>リールとラインの使用回数</b>が自動で増えます。</li>
-        <li>「ネットで詳しく調べる」は、<b>ロッドとリールの機能</b>です（小物は、AI読取のみ）。年式違いのモデルの情報が混ざることがあります。</li>
+        <li>「🤖 AIで入力」（旧：ネットで詳しく調べる）は、<b>ロッドとリールの機能</b>です（小物は、AI読取のみ）。「調べる」とは別の機能です。年式違いのモデルの情報が混ざることがあります。</li>
+        <li>「🔍 調べる」は、<b>各サイトの検索結果を開く機能</b>です。アプリの中に、価格や在庫は表示されません。価格・在庫・スペックは、開いたサイトでご確認ください。</li>
+        <li>「調べる」の「最安値」は、Amazon・楽天市場・Yahoo!ショッピングを、安い順で開きます。ナチュラム・Google・YouTubeは、並べ替えをしません。必ず最安値が見つかる機能ではありません。</li>
+        <li>「調べる」はAIを使いません。使う回数の制限もありません。開くお店とキーワードは、「⚙️ データ・設定」で、追加・削除・並べ替えができます。</li>
         <li>ロッドAI読取は、写真の写り方やモデルによって、読み取れないことがあります。結果は、確かめてから登録してください。</li>
         <li>小物の在庫が少なくなったときは、買い物リストに<b>入れるか聞きます</b>（自動では入りません）。</li>
         <li>無料で登録できる数：ライン・リール・ロッドは、<b>広告なしで3つまで</b>。4つ目からは、広告1回で1つずつ増え、最大10個。ルアーと小物は、合わせて広告なしで10個（広告1回で2個ずつ増えます）。PRO版は、上限がありません。</li>
@@ -692,7 +736,7 @@ footer small{display:block;line-height:1.7;opacity:.7}
         }
       });
     }, { threshold: 0.35 });
-    ['p0','p1','p2','p3','p4','p5','more','final'].forEach(function(id){ var el = document.getElementById(id); if (el) vo.observe(el); });
+    ['p0','p1','p2','p6','p3','p4','p5','more','final'].forEach(function(id){ var el = document.getElementById(id); if (el) vo.observe(el); });
   }
 })();
 </script>
